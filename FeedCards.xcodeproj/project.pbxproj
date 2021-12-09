@@ -31,8 +31,19 @@
 		667B981D27623130007C97C9 /* FeedAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B981C27623130007C97C9 /* FeedAPIProvider.swift */; };
 		667B981F27623160007C97C9 /* FeedAPIProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B981E27623160007C97C9 /* FeedAPIProviderMock.swift */; };
 		667B9821276231A5007C97C9 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B9820276231A5007C97C9 /* ShadowView.swift */; };
+		667B982927623311007C97C9 /* FeedCardsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B982827623311007C97C9 /* FeedCardsViewModelTests.swift */; };
 		8F60603CC776DEF7AEDCCE9C /* Pods_FeedCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2F4BF4315CC9706FABC38 /* Pods_FeedCards.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		667B982A27623311007C97C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 667B97CB27622A26007C97C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 667B97D227622A26007C97C9;
+			remoteInfo = FeedCards;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0C47C13BE4791B7A752D65AE /* Pods-FeedCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedCards.debug.xcconfig"; path = "Target Support Files/Pods-FeedCards/Pods-FeedCards.debug.xcconfig"; sourceTree = "<group>"; };
@@ -62,6 +73,8 @@
 		667B981C27623130007C97C9 /* FeedAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPIProvider.swift; sourceTree = "<group>"; };
 		667B981E27623160007C97C9 /* FeedAPIProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPIProviderMock.swift; sourceTree = "<group>"; };
 		667B9820276231A5007C97C9 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		667B982627623311007C97C9 /* FeedCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeedCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		667B982827623311007C97C9 /* FeedCardsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardsViewModelTests.swift; sourceTree = "<group>"; };
 		B0B2F4BF4315CC9706FABC38 /* Pods_FeedCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeedCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF0AAD75F5125404AC0364EE /* Pods-FeedCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedCards.release.xcconfig"; path = "Target Support Files/Pods-FeedCards/Pods-FeedCards.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +85,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F60603CC776DEF7AEDCCE9C /* Pods_FeedCards.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		667B982327623311007C97C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				667B97D527622A26007C97C9 /* FeedCards */,
+				667B982727623311007C97C9 /* FeedCardsTests */,
 				667B97D427622A26007C97C9 /* Products */,
 				C1F6898471DA4FA8CFCAD2DA /* Pods */,
 				141934229BCDF2951CC0BD24 /* Frameworks */,
@@ -100,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				667B97D327622A26007C97C9 /* FeedCards.app */,
+				667B982627623311007C97C9 /* FeedCardsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -248,6 +270,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		667B982727623311007C97C9 /* FeedCardsTests */ = {
+			isa = PBXGroup;
+			children = (
+				667B982827623311007C97C9 /* FeedCardsViewModelTests.swift */,
+			);
+			path = FeedCardsTests;
+			sourceTree = "<group>";
+		};
 		C1F6898471DA4FA8CFCAD2DA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +309,24 @@
 			productReference = 667B97D327622A26007C97C9 /* FeedCards.app */;
 			productType = "com.apple.product-type.application";
 		};
+		667B982527623311007C97C9 /* FeedCardsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 667B982C27623311007C97C9 /* Build configuration list for PBXNativeTarget "FeedCardsTests" */;
+			buildPhases = (
+				667B982227623311007C97C9 /* Sources */,
+				667B982327623311007C97C9 /* Frameworks */,
+				667B982427623311007C97C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				667B982B27623311007C97C9 /* PBXTargetDependency */,
+			);
+			name = FeedCardsTests;
+			productName = FeedCardsTests;
+			productReference = 667B982627623311007C97C9 /* FeedCardsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -291,6 +339,10 @@
 				TargetAttributes = {
 					667B97D227622A26007C97C9 = {
 						CreatedOnToolsVersion = 13.1;
+					};
+					667B982527623311007C97C9 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 667B97D227622A26007C97C9;
 					};
 				};
 			};
@@ -308,6 +360,7 @@
 			projectRoot = "";
 			targets = (
 				667B97D227622A26007C97C9 /* FeedCards */,
+				667B982527623311007C97C9 /* FeedCardsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -320,6 +373,13 @@
 				667B97F327622CCF007C97C9 /* response_feed_mock.json in Resources */,
 				667B97E327622A28007C97C9 /* LaunchScreen.storyboard in Resources */,
 				667B97E027622A28007C97C9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		667B982427623311007C97C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +456,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		667B982227623311007C97C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				667B982927623311007C97C9 /* FeedCardsViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		667B982B27623311007C97C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 667B97D227622A26007C97C9 /* FeedCards */;
+			targetProxy = 667B982A27623311007C97C9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		667B97E127622A28007C97C9 /* LaunchScreen.storyboard */ = {
@@ -582,6 +658,52 @@
 			};
 			name = Release;
 		};
+		667B982D27623311007C97C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8R3B5Q23AC;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.oliveira.FeedCardsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FeedCards.app/FeedCards";
+			};
+			name = Debug;
+		};
+		667B982E27623311007C97C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8R3B5Q23AC;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.oliveira.FeedCardsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FeedCards.app/FeedCards";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -599,6 +721,15 @@
 			buildConfigurations = (
 				667B97E827622A28007C97C9 /* Debug */,
 				667B97E927622A28007C97C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		667B982C27623311007C97C9 /* Build configuration list for PBXNativeTarget "FeedCardsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				667B982D27623311007C97C9 /* Debug */,
+				667B982E27623311007C97C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
