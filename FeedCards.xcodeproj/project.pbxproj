@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		667B97D727622A26007C97C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B97D627622A26007C97C9 /* AppDelegate.swift */; };
 		667B97D927622A26007C97C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B97D827622A26007C97C9 /* SceneDelegate.swift */; };
-		667B97DB27622A26007C97C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B97DA27622A26007C97C9 /* ViewController.swift */; };
 		667B97E027622A28007C97C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 667B97DF27622A28007C97C9 /* Assets.xcassets */; };
 		667B97E327622A28007C97C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 667B97E127622A28007C97C9 /* LaunchScreen.storyboard */; };
 		667B97F027622C46007C97C9 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B97EF27622C46007C97C9 /* UIImageViewExtension.swift */; };
@@ -50,7 +49,6 @@
 		667B97D327622A26007C97C9 /* FeedCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		667B97D627622A26007C97C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		667B97D827622A26007C97C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		667B97DA27622A26007C97C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		667B97DF27622A28007C97C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		667B97E227622A28007C97C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		667B97E427622A28007C97C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 				667B97EA27622B75007C97C9 /* Model */,
 				667B97D627622A26007C97C9 /* AppDelegate.swift */,
 				667B97D827622A26007C97C9 /* SceneDelegate.swift */,
-				667B97DA27622A26007C97C9 /* ViewController.swift */,
 				667B97DF27622A28007C97C9 /* Assets.xcassets */,
 				667B97E127622A28007C97C9 /* LaunchScreen.storyboard */,
 				667B97E427622A28007C97C9 /* Info.plist */,
@@ -439,7 +436,6 @@
 				667B9814276230B2007C97C9 /* FeedDataOperation.swift in Sources */,
 				667B980A2762301C007C97C9 /* ImageBusiness.swift in Sources */,
 				667B9821276231A5007C97C9 /* ShadowView.swift in Sources */,
-				667B97DB27622A26007C97C9 /* ViewController.swift in Sources */,
 				667B97D727622A26007C97C9 /* AppDelegate.swift in Sources */,
 				667B97FD27622F24007C97C9 /* FeedCardsTableViewCell.swift in Sources */,
 				667B980127622F85007C97C9 /* FeedCardsViewModelProtocol.swift in Sources */,
