@@ -9,7 +9,7 @@ import UIKit
 
 // MARK: - Spacing enumeration
 
-public enum Size: CGFloat {
+enum Size: CGFloat {
     case tine = 4.0
     case xSmall = 8.0
     case small = 10.0
@@ -20,7 +20,7 @@ public enum Size: CGFloat {
 
 // MARK: - CGFloat extension
 
-public extension CGFloat {
+extension CGFloat {
     
     /// Method responsible for get a default spacing
     /// - Parameter size: Spacing size
