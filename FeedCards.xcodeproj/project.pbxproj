@@ -135,10 +135,8 @@
 		667B97D527622A26007C97C9 /* FeedCards */ = {
 			isa = PBXGroup;
 			children = (
+				6688446527AC36FF00C072E4 /* Features */,
 				667B97ED27622B86007C97C9 /* Resources */,
-				667B97EC27622B80007C97C9 /* ViewModel */,
-				667B97EB27622B7B007C97C9 /* View */,
-				667B97EA27622B75007C97C9 /* Model */,
 				667B97D627622A26007C97C9 /* AppDelegate.swift */,
 				667B97D827622A26007C97C9 /* SceneDelegate.swift */,
 				667B97DF27622A28007C97C9 /* Assets.xcassets */,
@@ -301,6 +299,16 @@
 				667B9820276231A5007C97C9 /* ShadowView.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		6688446527AC36FF00C072E4 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				667B97EC27622B80007C97C9 /* ViewModel */,
+				667B97EB27622B7B007C97C9 /* View */,
+				667B97EA27622B75007C97C9 /* Model */,
+			);
+			path = Features;
 			sourceTree = "<group>";
 		};
 		C1F6898471DA4FA8CFCAD2DA /* Pods */ = {
