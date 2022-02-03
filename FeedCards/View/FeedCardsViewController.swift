@@ -19,7 +19,7 @@ class FeedCardsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Feed"
+        title = StringConstants.feedTitle
 
         navigationController?.view.backgroundColor = .lightGray
         setTableView()

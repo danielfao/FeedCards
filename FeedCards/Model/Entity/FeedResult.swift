@@ -5,8 +5,6 @@
 //  Created by Daniel Oliveira on 09/12/21.
 //
 
-import Foundation
-
 // MARK: - Feed Result
 
 struct FeedResult: Codable {

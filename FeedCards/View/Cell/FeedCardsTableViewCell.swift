@@ -14,6 +14,13 @@ protocol FeedCardsTableViewCellDelegate: AnyObject {
 
 class FeedCardsTableViewCell: UITableViewCell {
     
+    // MARK: - Constants
+    
+    private let height: CGFloat = 100
+    private let separatorLineHeight: CGFloat = 1
+    private let numberOfLines: Int = 1
+    private let shareIconImage: UIImage = UIImage(named: "share_icon") ?? UIImage()
+    
     // MARK: - Identifier
     
     static let identifier = "FeedCardsTableViewCell"
@@ -32,7 +39,7 @@ class FeedCardsTableViewCell: UITableViewCell {
     private lazy var containerView: UIView = {
         let containerView = UIView()
         containerView.backgroundColor = .white
-        containerView.layer.cornerRadius = 8
+        containerView.layer.cornerRadius = .size(.tine)
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         return containerView
@@ -47,7 +54,7 @@ class FeedCardsTableViewCell: UITableViewCell {
     
     private lazy var tagView: UIView = {
         let tagView = UIView()
-        tagView.layer.cornerRadius = 4
+        tagView.layer.cornerRadius = .size(.tine)
         tagView.translatesAutoresizingMaskIntoConstraints = false
         
         return tagView
@@ -57,21 +64,20 @@ class FeedCardsTableViewCell: UITableViewCell {
         let tagLabel = UILabel()
         tagLabel.textColor = .white
         tagLabel.textAlignment = .center
-        tagLabel.numberOfLines = 1
-        tagLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        tagLabel.numberOfLines = numberOfLines
+        tagLabel.font = .defaultRegularFont()
         tagLabel.translatesAutoresizingMaskIntoConstraints = false
         
         return tagLabel
     }()
     
     private lazy var followButton: UIButton = {
-        let spacing: CGFloat = 8.0
         let followButton = UIButton()
         followButton.backgroundColor = .systemOrange
-        followButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-        followButton.setTitle("FOLLOW", for: .normal)
-        followButton.contentEdgeInsets = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
-        followButton.layer.cornerRadius = 4
+        followButton.titleLabel?.font = .defaultRegularFont()
+        followButton.setTitle(StringConstants.followButtonTitle.uppercased(), for: .normal)
+        followButton.contentEdgeInsets = UIEdgeInsets(top: .spacing(.xSmall), left: .spacing(.xSmall), bottom: .spacing(.xSmall), right: .spacing(.xSmall))
+        followButton.layer.cornerRadius = .size(.tine)
         followButton.addTarget(self, action: #selector(didTapFollowButton), for: .touchUpInside)
         followButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -83,7 +89,7 @@ class FeedCardsTableViewCell: UITableViewCell {
         titleLabel.textColor = .black
         titleLabel.textAlignment = .natural
         titleLabel.numberOfLines = .zero
-        titleLabel.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        titleLabel.font = .bigBoldFont()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         return titleLabel
@@ -101,7 +107,7 @@ class FeedCardsTableViewCell: UITableViewCell {
         let stackCardView = UIStackView()
         stackCardView.distribution = .fillEqually
         stackCardView.axis = .horizontal
-        stackCardView.spacing = 16
+        stackCardView.spacing = .spacing(.medium)
         stackCardView.translatesAutoresizingMaskIntoConstraints = false
         
         return stackCardView
@@ -120,7 +126,7 @@ class FeedCardsTableViewCell: UITableViewCell {
         postDescriptionLabel.textColor = .black
         postDescriptionLabel.textAlignment = .natural
         postDescriptionLabel.numberOfLines = .zero
-        postDescriptionLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        postDescriptionLabel.font = .bigRegularFont()
         postDescriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         return postDescriptionLabel
@@ -129,23 +135,22 @@ class FeedCardsTableViewCell: UITableViewCell {
     private lazy var dateLabel: UILabel = {
         let dateLabel = UILabel()
         dateLabel.textColor = .lightGray
-        dateLabel.numberOfLines = 1
-        dateLabel.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+        dateLabel.numberOfLines = numberOfLines
+        dateLabel.font = .defaultMediumFont()
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
         
         return dateLabel
     }()
     
     private lazy var shareButton: UIButton = {
-        let spacing: CGFloat = 8.0
         let shareButton = UIButton()
-        shareButton.titleLabel?.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
-        shareButton.setTitle("SHARE", for: .normal)
+        shareButton.titleLabel?.font = .defaultSemiBoldFont()
+        shareButton.setTitle(StringConstants.shareButtonTitle.uppercased(), for: .normal)
         shareButton.setTitleColor(.systemOrange, for: .normal)
-        shareButton.setImage(UIImage(named: "share_icon"), for: .normal)
+        shareButton.setImage(shareIconImage, for: .normal)
         shareButton.imageView?.tintColor = .systemOrange
-        shareButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
-        shareButton.layer.cornerRadius = 4
+        shareButton.imageEdgeInsets = UIEdgeInsets(top: .zero, left: -.size(.small), bottom: .zero, right: .zero)
+        shareButton.layer.cornerRadius = .size(.tine)
         shareButton.addTarget(self, action: #selector(didTapShareButton), for: .touchUpInside)
         shareButton.translatesAutoresizingMaskIntoConstraints = false
         
@@ -218,7 +223,7 @@ extension FeedCardsTableViewCell {
             for urlString in imagesURL {
                 let image = UIImageView()
                 image.setImage(imageUrl: urlString)
-                image.layer.cornerRadius = 8
+                image.layer.cornerRadius = .size(.xSmall)
                 image.contentMode = .scaleAspectFill
                 image.clipsToBounds = true
                 self.stackCardView.addArrangedSubview(image)
@@ -272,10 +277,10 @@ extension FeedCardsTableViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4)
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .size(.tine)),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: .size(.xSmall)),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -.size(.xSmall)),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.size(.tine))
         ])
     }
     
@@ -284,16 +289,16 @@ extension FeedCardsTableViewCell {
         tagView.addSubview(tagLabel)
         
         NSLayoutConstraint.activate([
-            tagView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16),
-            tagView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16)
+            tagView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: .size(.medium)),
+            tagView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .size(.medium))
             
         ])
         
         NSLayoutConstraint.activate([
-            tagLabel.leadingAnchor.constraint(equalTo: tagView.leadingAnchor, constant: 4),
-            tagLabel.trailingAnchor.constraint(equalTo: tagView.trailingAnchor, constant: -4),
-            tagLabel.topAnchor.constraint(equalTo: tagView.topAnchor, constant: 4),
-            tagLabel.bottomAnchor.constraint(equalTo: tagView.bottomAnchor, constant: -4)
+            tagLabel.leadingAnchor.constraint(equalTo: tagView.leadingAnchor, constant: .size(.tine)),
+            tagLabel.trailingAnchor.constraint(equalTo: tagView.trailingAnchor, constant: -.size(.tine)),
+            tagLabel.topAnchor.constraint(equalTo: tagView.topAnchor, constant: .size(.tine)),
+            tagLabel.bottomAnchor.constraint(equalTo: tagView.bottomAnchor, constant: -.size(.tine))
         ])
     }
     
@@ -301,8 +306,8 @@ extension FeedCardsTableViewCell {
         containerView.addSubview(followButton)
         
         NSLayoutConstraint.activate([
-            followButton.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16),
-            followButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
+            followButton.topAnchor.constraint(equalTo: containerView.topAnchor, constant: .size(.medium)),
+            followButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -.size(.medium)),
         ])
     }
     
@@ -311,16 +316,16 @@ extension FeedCardsTableViewCell {
         containerView.addSubview(separatorLine)
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: tagView.bottomAnchor, constant: 16),
-            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16)
+            titleLabel.topAnchor.constraint(equalTo: tagView.bottomAnchor, constant: .size(.medium)),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .size(.medium)),
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -.size(.medium))
         ])
         
         NSLayoutConstraint.activate([
-            separatorLine.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+            separatorLine.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .size(.xSmall)),
             separatorLine.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             separatorLine.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            separatorLine.heightAnchor.constraint(equalToConstant: 1)
+            separatorLine.heightAnchor.constraint(equalToConstant: separatorLineHeight)
         ])
     }
     
@@ -328,10 +333,10 @@ extension FeedCardsTableViewCell {
         containerView.addSubview(stackCardView)
         
         NSLayoutConstraint.activate([
-            stackCardView.heightAnchor.constraint(equalToConstant: 100),
-            stackCardView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            stackCardView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
-            stackCardView.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: 16)
+            stackCardView.heightAnchor.constraint(equalToConstant: height),
+            stackCardView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .size(.medium)),
+            stackCardView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -.size(.medium)),
+            stackCardView.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: .size(.medium))
         ])
     }
     
@@ -340,14 +345,14 @@ extension FeedCardsTableViewCell {
         
         if hasDescription {
             NSLayoutConstraint.activate([
-                dateLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-                dateLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -16),
+                dateLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .size(.medium)),
+                dateLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -.size(.medium)),
             ])
         } else {
             NSLayoutConstraint.activate([
-                dateLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-                dateLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -16),
-                dateLabel.topAnchor.constraint(equalTo: stackCardView.bottomAnchor, constant: 16)
+                dateLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .size(.medium)),
+                dateLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -.size(.medium)),
+                dateLabel.topAnchor.constraint(equalTo: stackCardView.bottomAnchor, constant: .size(.medium))
             ])
         }
         
@@ -357,7 +362,7 @@ extension FeedCardsTableViewCell {
         containerView.addSubview(shareButton)
         
         NSLayoutConstraint.activate([
-            shareButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
+            shareButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -.size(.medium)),
             shareButton.centerYAnchor.constraint(equalTo: dateLabel.centerYAnchor)
         ])
     }
@@ -367,17 +372,17 @@ extension FeedCardsTableViewCell {
         containerView.addSubview(postDescriptionLabel)
         
         NSLayoutConstraint.activate([
-            postDescriptionLine.topAnchor.constraint(equalTo: stackCardView.bottomAnchor, constant: 16),
+            postDescriptionLine.topAnchor.constraint(equalTo: stackCardView.bottomAnchor, constant: .size(.medium)),
             postDescriptionLine.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             postDescriptionLine.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            postDescriptionLine.heightAnchor.constraint(equalToConstant: 1)
+            postDescriptionLine.heightAnchor.constraint(equalToConstant: separatorLineHeight)
         ])
         
         NSLayoutConstraint.activate([
-            postDescriptionLabel.topAnchor.constraint(equalTo: postDescriptionLine.bottomAnchor, constant: 16),
-            postDescriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            postDescriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
-            postDescriptionLabel.bottomAnchor.constraint(equalTo: dateLabel.topAnchor, constant: -24)
+            postDescriptionLabel.topAnchor.constraint(equalTo: postDescriptionLine.bottomAnchor, constant: .size(.medium)),
+            postDescriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .size(.medium)),
+            postDescriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -.size(.medium)),
+            postDescriptionLabel.bottomAnchor.constraint(equalTo: dateLabel.topAnchor, constant: -.size(.big))
         ])
     }
 }

@@ -31,6 +31,10 @@
 		667B981F27623160007C97C9 /* FeedAPIProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B981E27623160007C97C9 /* FeedAPIProviderMock.swift */; };
 		667B9821276231A5007C97C9 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B9820276231A5007C97C9 /* ShadowView.swift */; };
 		667B982927623311007C97C9 /* FeedCardsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B982827623311007C97C9 /* FeedCardsViewModelTests.swift */; };
+		6688445C27AC21CD00C072E4 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6688445B27AC21CD00C072E4 /* StringConstants.swift */; };
+		6688446027AC23CB00C072E4 /* OperationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6688445F27AC23CB00C072E4 /* OperationState.swift */; };
+		6688446227AC24ED00C072E4 /* CGFloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6688446127AC24ED00C072E4 /* CGFloatExtension.swift */; };
+		6688446427AC2C8D00C072E4 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6688446327AC2C8D00C072E4 /* UIFontExtension.swift */; };
 		8F60603CC776DEF7AEDCCE9C /* Pods_FeedCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2F4BF4315CC9706FABC38 /* Pods_FeedCards.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +77,10 @@
 		667B9820276231A5007C97C9 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		667B982627623311007C97C9 /* FeedCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeedCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		667B982827623311007C97C9 /* FeedCardsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardsViewModelTests.swift; sourceTree = "<group>"; };
+		6688445B27AC21CD00C072E4 /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		6688445F27AC23CB00C072E4 /* OperationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationState.swift; sourceTree = "<group>"; };
+		6688446127AC24ED00C072E4 /* CGFloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloatExtension.swift; sourceTree = "<group>"; };
+		6688446327AC2C8D00C072E4 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		B0B2F4BF4315CC9706FABC38 /* Pods_FeedCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FeedCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF0AAD75F5125404AC0364EE /* Pods-FeedCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedCards.release.xcconfig"; path = "Target Support Files/Pods-FeedCards/Pods-FeedCards.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,10 +181,11 @@
 		667B97ED27622B86007C97C9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6688445D27AC22B000C072E4 /* Constants */,
 				667B97F427622D0B007C97C9 /* Enum */,
-				667B97F127622CAD007C97C9 /* Mock */,
 				667B97EE27622C2F007C97C9 /* Extension */,
-				667B9820276231A5007C97C9 /* ShadowView.swift */,
+				667B97F127622CAD007C97C9 /* Mock */,
+				6688445E27AC22B900C072E4 /* Utils */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -185,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				667B97EF27622C46007C97C9 /* UIImageViewExtension.swift */,
+				6688446127AC24ED00C072E4 /* CGFloatExtension.swift */,
+				6688446327AC2C8D00C072E4 /* UIFontExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -201,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				667B9817276230E8007C97C9 /* NetworkError.swift */,
+				6688445F27AC23CB00C072E4 /* OperationState.swift */,
 				667B97F527622D1A007C97C9 /* TagType.swift */,
 			);
 			path = Enum;
@@ -273,6 +285,22 @@
 				667B982827623311007C97C9 /* FeedCardsViewModelTests.swift */,
 			);
 			path = FeedCardsTests;
+			sourceTree = "<group>";
+		};
+		6688445D27AC22B000C072E4 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				6688445B27AC21CD00C072E4 /* StringConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		6688445E27AC22B900C072E4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				667B9820276231A5007C97C9 /* ShadowView.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		C1F6898471DA4FA8CFCAD2DA /* Pods */ = {
@@ -432,12 +460,14 @@
 				667B9818276230E8007C97C9 /* NetworkError.swift in Sources */,
 				667B981B27623113007C97C9 /* FeedAPIProviderProtocol.swift in Sources */,
 				667B97FF27622F7E007C97C9 /* FeedCardsViewModel.swift in Sources */,
+				6688446027AC23CB00C072E4 /* OperationState.swift in Sources */,
 				667B981F27623160007C97C9 /* FeedAPIProviderMock.swift in Sources */,
 				667B9814276230B2007C97C9 /* FeedDataOperation.swift in Sources */,
 				667B980A2762301C007C97C9 /* ImageBusiness.swift in Sources */,
 				667B9821276231A5007C97C9 /* ShadowView.swift in Sources */,
 				667B97D727622A26007C97C9 /* AppDelegate.swift in Sources */,
 				667B97FD27622F24007C97C9 /* FeedCardsTableViewCell.swift in Sources */,
+				6688446427AC2C8D00C072E4 /* UIFontExtension.swift in Sources */,
 				667B980127622F85007C97C9 /* FeedCardsViewModelProtocol.swift in Sources */,
 				667B981D27623130007C97C9 /* FeedAPIProvider.swift in Sources */,
 				667B980D27623064007C97C9 /* FeedManagerProtocol.swift in Sources */,
@@ -446,7 +476,9 @@
 				667B980827623012007C97C9 /* ImageBusinessProtocol.swift in Sources */,
 				667B97F027622C46007C97C9 /* UIImageViewExtension.swift in Sources */,
 				667B980F27623076007C97C9 /* FeedManager.swift in Sources */,
+				6688445C27AC21CD00C072E4 /* StringConstants.swift in Sources */,
 				667B97F627622D1A007C97C9 /* TagType.swift in Sources */,
+				6688446227AC24ED00C072E4 /* CGFloatExtension.swift in Sources */,
 				667B98122762309A007C97C9 /* AsyncOperation.swift in Sources */,
 				667B97D927622A26007C97C9 /* SceneDelegate.swift in Sources */,
 			);

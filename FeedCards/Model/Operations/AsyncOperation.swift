@@ -7,19 +7,11 @@
 
 import Foundation
 
-/// Base class for async operations
 open class AsyncOperation: Operation {
-    /// States enum
-    public enum State: String {
-        case ready = "isReady"
-        case executing = "isExecuting"
-        case finished = "isFinished"
-        case cancelled = "isCancelled"
-    }
     
     // MARK: - Properties
     
-    private(set) var state: State = .ready {
+    private(set) var state: OperationState = .ready {
         willSet {
             willChangeValue(forKey: state.rawValue)
             willChangeValue(forKey: newValue.rawValue)
