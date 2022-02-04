@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		662FE8AC27AD861900E826F6 /* FeedCardsViewModelCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662FE8AB27AD861900E826F6 /* FeedCardsViewModelCellTests.swift */; };
+		662FE8AE27AD8C0500E826F6 /* response_feed_mock_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 662FE8AD27AD8C0500E826F6 /* response_feed_mock_test.json */; };
+		662FE8B027AD8DE400E826F6 /* FeedManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 662FE8AF27AD8DE400E826F6 /* FeedManagerTests.swift */; };
 		667B97D727622A26007C97C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B97D627622A26007C97C9 /* AppDelegate.swift */; };
 		667B97D927622A26007C97C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B97D827622A26007C97C9 /* SceneDelegate.swift */; };
 		667B97E027622A28007C97C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 667B97DF27622A28007C97C9 /* Assets.xcassets */; };
@@ -30,7 +33,6 @@
 		667B981D27623130007C97C9 /* FeedAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B981C27623130007C97C9 /* FeedAPIProvider.swift */; };
 		667B981F27623160007C97C9 /* FeedAPIProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B981E27623160007C97C9 /* FeedAPIProviderMock.swift */; };
 		667B9821276231A5007C97C9 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B9820276231A5007C97C9 /* ShadowView.swift */; };
-		667B982927623311007C97C9 /* FeedCardsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B982827623311007C97C9 /* FeedCardsViewModelTests.swift */; };
 		6680784827AD6EEE00E2C1B9 /* FeedCardsViewModelCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6680784727AD6EEE00E2C1B9 /* FeedCardsViewModelCellProtocol.swift */; };
 		6680784A27AD6F3F00E2C1B9 /* FeedCardsViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6680784927AD6F3F00E2C1B9 /* FeedCardsViewModelCell.swift */; };
 		6688446027AC23CB00C072E4 /* OperationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6688445F27AC23CB00C072E4 /* OperationState.swift */; };
@@ -54,6 +56,9 @@
 
 /* Begin PBXFileReference section */
 		0C47C13BE4791B7A752D65AE /* Pods-FeedCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedCards.debug.xcconfig"; path = "Target Support Files/Pods-FeedCards/Pods-FeedCards.debug.xcconfig"; sourceTree = "<group>"; };
+		662FE8AB27AD861900E826F6 /* FeedCardsViewModelCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardsViewModelCellTests.swift; sourceTree = "<group>"; };
+		662FE8AD27AD8C0500E826F6 /* response_feed_mock_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = response_feed_mock_test.json; sourceTree = "<group>"; };
+		662FE8AF27AD8DE400E826F6 /* FeedManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManagerTests.swift; sourceTree = "<group>"; };
 		667B97D327622A26007C97C9 /* FeedCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		667B97D627622A26007C97C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		667B97D827622A26007C97C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +85,6 @@
 		667B981E27623160007C97C9 /* FeedAPIProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPIProviderMock.swift; sourceTree = "<group>"; };
 		667B9820276231A5007C97C9 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		667B982627623311007C97C9 /* FeedCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FeedCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		667B982827623311007C97C9 /* FeedCardsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardsViewModelTests.swift; sourceTree = "<group>"; };
 		6680784727AD6EEE00E2C1B9 /* FeedCardsViewModelCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardsViewModelCellProtocol.swift; sourceTree = "<group>"; };
 		6680784927AD6F3F00E2C1B9 /* FeedCardsViewModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardsViewModelCell.swift; sourceTree = "<group>"; };
 		6688445F27AC23CB00C072E4 /* OperationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationState.swift; sourceTree = "<group>"; };
@@ -210,6 +214,7 @@
 		667B97F127622CAD007C97C9 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
+				662FE8AD27AD8C0500E826F6 /* response_feed_mock_test.json */,
 				667B97F227622CCF007C97C9 /* response_feed_mock.json */,
 			);
 			path = Mock;
@@ -290,7 +295,8 @@
 		667B982727623311007C97C9 /* FeedCardsTests */ = {
 			isa = PBXGroup;
 			children = (
-				667B982827623311007C97C9 /* FeedCardsViewModelTests.swift */,
+				662FE8AB27AD861900E826F6 /* FeedCardsViewModelCellTests.swift */,
+				662FE8AF27AD8DE400E826F6 /* FeedManagerTests.swift */,
 			);
 			path = FeedCardsTests;
 			sourceTree = "<group>";
@@ -433,6 +439,7 @@
 			files = (
 				667B97F327622CCF007C97C9 /* response_feed_mock.json in Resources */,
 				668844AC27AC93DF00C072E4 /* Localizable.strings in Resources */,
+				662FE8AE27AD8C0500E826F6 /* response_feed_mock_test.json in Resources */,
 				667B97E327622A28007C97C9 /* LaunchScreen.storyboard in Resources */,
 				667B97E027622A28007C97C9 /* Assets.xcassets in Resources */,
 			);
@@ -528,7 +535,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				667B982927623311007C97C9 /* FeedCardsViewModelTests.swift in Sources */,
+				662FE8AC27AD861900E826F6 /* FeedCardsViewModelCellTests.swift in Sources */,
+				662FE8B027AD8DE400E826F6 /* FeedManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

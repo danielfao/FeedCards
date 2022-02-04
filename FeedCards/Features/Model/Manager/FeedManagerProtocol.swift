@@ -12,5 +12,4 @@ protocol FeedManagerProtocol {
     // MARK: - Functions
     
     func fetchData(completion: @escaping FeedResultCompletion)
-    func cancelOperations()
 }

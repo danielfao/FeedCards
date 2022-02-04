@@ -1,0 +1,25 @@
+{
+    "feed": [
+        {
+            "tag": "recommended",
+            "isFollowing": false,
+            "title": "Seller with a very long name that needs two line to fit",
+            "images": [
+                {
+                    "id": "10",
+                    "imageUrl": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTN8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80"
+                },
+                {
+                    "id": "11",
+                    "imageUrl": "https://blog-www.pods.com/wp-content/uploads/2020/07/Feature-Home-Office-GEtty-Resized.jpg"
+                },
+                {
+                    "id": "12",
+                    "imageUrl": "https://www.beach.com/wp-content/uploads/2019/04/rsz_shutterstock_377796004-680x380.jpg"
+                }
+            ],
+            "postDescription": "Just in! New items from Jerseygramm and Brandings available. Check them out!",
+            "lastPostDate": "2022-02-03T13:45:00.000Z"
+        }
+    ]
+}

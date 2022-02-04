@@ -201,8 +201,8 @@ class FeedCardsTableViewCell: UITableViewCell {
 
 extension FeedCardsTableViewCell {
     private func setCardContent() {
-        setCardTitle()
         setTagView()
+        setCardTitle()
         setFollowingButton()
         setDateLabel()
     }
@@ -394,4 +394,3 @@ extension FeedCardsTableViewCell {
         ])
     }
 }
-

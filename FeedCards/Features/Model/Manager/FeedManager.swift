@@ -37,8 +37,4 @@ extension FeedManager: FeedManagerProtocol {
         }
         addOperation(feedDataOperation)
     }
-
-    func cancelOperations() {
-        cancelAllOperations()
-    }
 }
