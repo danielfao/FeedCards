@@ -78,6 +78,10 @@ extension FeedCardsViewController: UITableViewDataSource, UITableViewDelegate {
 // MARK: - FeedTableViewCellDelegate
 
 extension FeedCardsViewController: FeedCardsTableViewCellDelegate {
+    func didTapImage(_ imageId: String) {
+        print("Did tap Image number: \(imageId)")
+    }
+    
     func didTapFollow() {
         print("Did tap Follow Button")
     }

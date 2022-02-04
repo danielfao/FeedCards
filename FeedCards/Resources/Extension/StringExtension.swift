@@ -49,11 +49,11 @@ extension String {
                     timeFormatter.dateFormat = "dd-MM-yyyy"
                     timeFormatter.string(from: currentDate)
                     let date = timeFormatter.string(from: currentDate)
-                    dateFormatted = "Posted on: \(date)"
+                    dateFormatted = String(format: LocalizableStrings.postedAnotherDay.localized, date)
                 } else {
                     timeFormatter.timeStyle = .short
                     let time = timeFormatter.string(from: postDate)
-                    dateFormatted = "Posted today at: \(time)"
+                    dateFormatted = String(format: LocalizableStrings.postedToday.localized, time)
                 }
             }
         }

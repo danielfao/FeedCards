@@ -23,6 +23,16 @@ enum LocalizableStrings: String, Localizable {
     case followButtonTitle
     case shareButtonTitle
     
+    // MARK: - Network messages
+    
+    case invalidUrlError
+    case genericError
+    
+    // MARK: - Date messages
+    
+    case postedToday
+    case postedAnotherDay
+    
     // MARK: - Computed Propertie
     
     var localized: String {

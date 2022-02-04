@@ -16,7 +16,6 @@ class FeedCardsViewModel: FeedCardsViewModelProtocol {
     // MARK: - Private properties
     
     private var manager: FeedManagerProtocol
-    private var feedImages: [UIImage]? = []
     
     // MARK: - Initializer
     

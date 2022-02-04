@@ -20,9 +20,9 @@ final class ImagesBusiness {
     private func erroMessage(_ error: NetworkError) -> String {
         switch error {
         case .invalidUrl:
-            return "Invalid URL"
+            return LocalizableStrings.invalidUrlError.localized
         default:
-            return "Couldn't load feed result"
+            return LocalizableStrings.genericError.localized
         }
     }
 }

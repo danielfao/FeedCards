@@ -20,3 +20,13 @@
 
 "followButtonTitle" = "Follow";
 "shareButtonTitle" = "Share";
+
+// MARK: - Network errors
+
+"invalidUrlError" = "Invalid URL";
+"genericError" = "Couldn't load feed result";
+
+// MARK: - Date messages
+
+"postedToday" = "Posted today at: %@";
+"postedAnotherDay" = "Posted on: %@";

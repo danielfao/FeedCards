@@ -10,6 +10,7 @@ import UIKit
 protocol FeedCardsTableViewCellDelegate: AnyObject {
     func didTapFollow()
     func didTapShare()
+    func didTapImage(_ imageId: String)
 }
 
 class FeedCardsTableViewCell: UITableViewCell {
@@ -33,6 +34,7 @@ class FeedCardsTableViewCell: UITableViewCell {
     
     private var feed: Feed?
     private var imagesFetched: Bool = false
+    private var viewModel: FeedCardsViewModelCellProtocol?
     
     // MARK: - Private elements
     
@@ -172,48 +174,9 @@ class FeedCardsTableViewCell: UITableViewCell {
     }
     
     public func setup(_ feed: Feed) {
-        self.feed = feed
+        self.viewModel = FeedCardsViewModelCell(feed)
         setCardContent()
         setLayout()
-    }
-    
-    func setTagTypeText() -> String {
-        guard let type = TagType.init(rawValue: feed?.tag ?? String()) else {
-            return String()
-        }
-        
-        return type.text
-    }
-    
-    func setTagTypeColor() -> UIColor {
-        guard let type = TagType.init(rawValue: feed?.tag ?? String()) else {
-            return UIColor()
-        }
-        
-        return type.color
-    }
-    
-    func setTitleText() -> String {
-        return feed?.title ?? String()
-    }
-    
-    func setIsFollowing() -> Bool {
-        return feed?.isFollowing ?? false
-    }
-    
-    func setDescription() -> String? {
-        return feed?.postDescription
-    }
-    
-    func getImagesURL() -> [String] {
-        var urlString: [String] = []
-        feed?.images.forEach { urlString.append($0.imageUrl) }
-        
-        return urlString
-    }
-    
-    func setFormatedData() -> String {
-        return feed?.lastPostDate.getFormatedDate() ?? String()
     }
     
     // MARK: - Objc Functions
@@ -226,6 +189,11 @@ class FeedCardsTableViewCell: UITableViewCell {
     @objc
     private func didTapShareButton() {
         delegate?.didTapShare()
+    }
+    
+    @objc
+    private func didTapStackImageView(_ imageId: String) {
+        delegate?.didTapImage(imageId)
     }
 }
 
@@ -240,16 +208,16 @@ extension FeedCardsTableViewCell {
     }
     
     private func setTagView() {
-        tagView.backgroundColor = setTagTypeColor()
-        tagLabel.text = setTagTypeText()
+        tagView.backgroundColor = viewModel?.getTagTypeColor()
+        tagLabel.text = viewModel?.getTagTypeText()
     }
     
     private func setCardTitle() {
-        titleLabel.text = setTitleText()
+        titleLabel.text = viewModel?.getTitleText()
     }
     
     private func setFollowingButton() {
-        if !setIsFollowing() {
+        if !(viewModel?.getIsFollowing() ?? false) {
             followButton.removeFromSuperview()
         } else {
             setConstraintFollowButton()
@@ -258,8 +226,9 @@ extension FeedCardsTableViewCell {
     
     private func setStackViewImageCards() {
         if !self.imagesFetched {
-            let imagesURL = getImagesURL()
-            for urlString in imagesURL {
+            guard let imagesUrl = viewModel?.getImagesURL() else { return }
+
+            for urlString in imagesUrl {
                 let image = UIImageView()
                 image.setImage(imageUrl: urlString)
                 image.layer.cornerRadius = .size(.xSmall)
@@ -273,13 +242,13 @@ extension FeedCardsTableViewCell {
     }
     
     private func setDescriptionTextView() {
-        if let descriptionText = setDescription() {
+        if let descriptionText = viewModel?.getDescription() {
             postDescriptionLabel.text = descriptionText
         }
     }
     
     private func setDateLabel() {
-        dateLabel.text = setFormatedData()
+        dateLabel.text = viewModel?.getFormatedDate()
     }
 }
 
@@ -294,7 +263,7 @@ extension FeedCardsTableViewCell {
         setStackViewImageCards()
         setConstraintStackView()
         
-        if setDescription() != nil {
+        if viewModel?.getDescription() != nil {
             setConstraintDateLabel(hasDescription: true)
             setConstraintPostDescriptionLabel()
             setDescriptionTextView()
