@@ -33,7 +33,7 @@ class FeedManagerTests: XCTestCase {
     
     func testManagerSuccessedFetchData() {
         let provider = FeedAPIProviderMock(file: "response_feed_mock_test")
-        let business = ImagesBusiness(provider: provider)
+        let business = FeedBusiness(provider: provider)
         let manager = FeedManager(business: business)
         
         var feed: [Feed] = []
@@ -54,7 +54,7 @@ class FeedManagerTests: XCTestCase {
     
     func testManagerDataFetched() {
         let provider = FeedAPIProviderMock(file: "response_feed_mock_test")
-        let business = ImagesBusiness(provider: provider)
+        let business = FeedBusiness(provider: provider)
         let manager = FeedManager(business: business)
         
         var feeds: [Feed] = []

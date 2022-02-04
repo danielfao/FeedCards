@@ -22,8 +22,8 @@
 		667B97FF27622F7E007C97C9 /* FeedCardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B97FE27622F7E007C97C9 /* FeedCardsViewModel.swift */; };
 		667B980127622F85007C97C9 /* FeedCardsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B980027622F85007C97C9 /* FeedCardsViewModelProtocol.swift */; };
 		667B980627622FEF007C97C9 /* FeedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B980527622FEF007C97C9 /* FeedResult.swift */; };
-		667B980827623012007C97C9 /* ImageBusinessProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B980727623012007C97C9 /* ImageBusinessProtocol.swift */; };
-		667B980A2762301C007C97C9 /* ImageBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B98092762301C007C97C9 /* ImageBusiness.swift */; };
+		667B980827623012007C97C9 /* FeedBusinessProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B980727623012007C97C9 /* FeedBusinessProtocol.swift */; };
+		667B980A2762301C007C97C9 /* FeedBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B98092762301C007C97C9 /* FeedBusiness.swift */; };
 		667B980D27623064007C97C9 /* FeedManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B980C27623064007C97C9 /* FeedManagerProtocol.swift */; };
 		667B980F27623076007C97C9 /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B980E27623076007C97C9 /* FeedManager.swift */; };
 		667B98122762309A007C97C9 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667B98112762309A007C97C9 /* AsyncOperation.swift */; };
@@ -73,8 +73,8 @@
 		667B97FE27622F7E007C97C9 /* FeedCardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardsViewModel.swift; sourceTree = "<group>"; };
 		667B980027622F85007C97C9 /* FeedCardsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardsViewModelProtocol.swift; sourceTree = "<group>"; };
 		667B980527622FEF007C97C9 /* FeedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResult.swift; sourceTree = "<group>"; };
-		667B980727623012007C97C9 /* ImageBusinessProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBusinessProtocol.swift; sourceTree = "<group>"; };
-		667B98092762301C007C97C9 /* ImageBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageBusiness.swift; sourceTree = "<group>"; };
+		667B980727623012007C97C9 /* FeedBusinessProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBusinessProtocol.swift; sourceTree = "<group>"; };
+		667B98092762301C007C97C9 /* FeedBusiness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBusiness.swift; sourceTree = "<group>"; };
 		667B980C27623064007C97C9 /* FeedManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManagerProtocol.swift; sourceTree = "<group>"; };
 		667B980E27623076007C97C9 /* FeedManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 		667B98112762309A007C97C9 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
@@ -242,8 +242,8 @@
 		667B980227622FCD007C97C9 /* Business */ = {
 			isa = PBXGroup;
 			children = (
-				667B980727623012007C97C9 /* ImageBusinessProtocol.swift */,
-				667B98092762301C007C97C9 /* ImageBusiness.swift */,
+				667B980727623012007C97C9 /* FeedBusinessProtocol.swift */,
+				667B98092762301C007C97C9 /* FeedBusiness.swift */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -507,7 +507,7 @@
 				6688446027AC23CB00C072E4 /* OperationState.swift in Sources */,
 				667B981F27623160007C97C9 /* FeedAPIProviderMock.swift in Sources */,
 				667B9814276230B2007C97C9 /* FeedDataOperation.swift in Sources */,
-				667B980A2762301C007C97C9 /* ImageBusiness.swift in Sources */,
+				667B980A2762301C007C97C9 /* FeedBusiness.swift in Sources */,
 				668844A727AC89ED00C072E4 /* StringExtension.swift in Sources */,
 				667B9821276231A5007C97C9 /* ShadowView.swift in Sources */,
 				667B97D727622A26007C97C9 /* AppDelegate.swift in Sources */,
@@ -519,7 +519,7 @@
 				667B980D27623064007C97C9 /* FeedManagerProtocol.swift in Sources */,
 				667B97FB27622EA9007C97C9 /* FeedCardsViewController.swift in Sources */,
 				667B980627622FEF007C97C9 /* FeedResult.swift in Sources */,
-				667B980827623012007C97C9 /* ImageBusinessProtocol.swift in Sources */,
+				667B980827623012007C97C9 /* FeedBusinessProtocol.swift in Sources */,
 				667B97F027622C46007C97C9 /* UIImageViewExtension.swift in Sources */,
 				667B980F27623076007C97C9 /* FeedManager.swift in Sources */,
 				667B97F627622D1A007C97C9 /* TagType.swift in Sources */,

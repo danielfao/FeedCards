@@ -1,5 +1,5 @@
 //
-//  ImageBusiness.swift
+//  FeedBusiness.swift
 //  FeedCards
 //
 //  Created by Daniel Oliveira on 09/12/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ImagesBusiness {
+final class FeedBusiness {
     
     // MARK: - Private properties
     
@@ -29,7 +29,7 @@ final class ImagesBusiness {
 
 // MARK: - ImagesBusinessProtocol
 
-extension ImagesBusiness: ImagesBusinessProtocol {
+extension FeedBusiness: FeedBusinessProtocol {
     func fetchData(completion: @escaping FeedResultCompletion) {
         provider?.fetchData(completion: { result in
             switch result {

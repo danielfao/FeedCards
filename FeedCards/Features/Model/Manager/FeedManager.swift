@@ -15,9 +15,11 @@ final class FeedManager: OperationQueue {
     
     // MARK: - Private properties
     
-    private var business: ImagesBusinessProtocol?
+    private var business: FeedBusinessProtocol?
     
-    init(business: ImagesBusinessProtocol? = ImagesBusiness()) {
+    // MARK: - Initializer
+    
+    init(business: FeedBusinessProtocol? = FeedBusiness()) {
         self.business = business
     }
 }

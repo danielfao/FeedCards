@@ -10,12 +10,12 @@ import Foundation
 class FeedDataOperation: AsyncOperation {
     // MARK: - Private properties
 
-    private var business: ImagesBusinessProtocol?
+    private var business: FeedBusinessProtocol?
     private var completion: FeedResultCompletion?
 
     // MARK: - Initializers
 
-    init(_ business: ImagesBusinessProtocol?, completion: @escaping FeedResultCompletion) {
+    init(_ business: FeedBusinessProtocol?, completion: @escaping FeedResultCompletion) {
         self.business = business
         self.completion = completion
     }
