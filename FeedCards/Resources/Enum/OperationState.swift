@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum OperationState: String {
+enum OperationState: String {
     case ready = "isReady"
     case executing = "isExecuting"
     case finished = "isFinished"

@@ -24,7 +24,7 @@ class FeedAPIProviderMock: FeedAPIProviderProtocol {
     
     // MARK: - Public functions
     
-    func fetchData(completion: @escaping (Result<FeedResult, NetworkError>) -> Void) {
+    func fetchData(completion: @escaping FeedResultCompletion) {
         if let path = bundle.path(forResource: file, ofType: "json") {
             if let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
                 if let response = try? JSONDecoder().decode(FeedResult.self, from: data) {

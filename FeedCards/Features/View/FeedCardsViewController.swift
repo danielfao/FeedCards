@@ -12,18 +12,29 @@ class FeedCardsViewController: UIViewController {
     // MARK: - Private properties
     
     private var tableView: UITableView?
-    private var feedViewModel: [FeedCardsViewModelProtocol] = []
+    private var feedViewModel: FeedCardsViewModelProtocol
+    
+    // MARK: - Initializers
+    
+    init(feedViewModel: FeedCardsViewModelProtocol) {
+        self.feedViewModel = feedViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = StringConstants.feedTitle
+        title = LocalizableStrings.feedTitle.localized
 
         navigationController?.view.backgroundColor = .lightGray
         setTableView()
-        setDataSource()
+        feedViewModel.fetchData()
     }
     
     // MARK: - Private functions
@@ -40,24 +51,8 @@ class FeedCardsViewController: UIViewController {
         tableView?.dataSource = self
         tableView?.delegate = self
         
-        guard let tableView = tableView else {
-            return
-        }
+        guard let tableView = tableView else { return }
         view.addSubview(tableView)
-    }
-    
-    private func setDataSource() {
-        let manager = FeedManager()
-        manager.fetchData { [weak self] result, error in
-            guard let self = self, let feedResult = result else {
-                return
-            }
-            for feed in feedResult.feed {
-                let viewModel = FeedCardsViewModel(feed)
-                self.feedViewModel.append(viewModel)
-            }
-            self.tableView?.reloadData()
-        }
     }
 }
 
@@ -65,7 +60,7 @@ class FeedCardsViewController: UIViewController {
 
 extension FeedCardsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return feedViewModel.count
+        return feedViewModel.feed.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,7 +68,7 @@ extension FeedCardsViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
-        cell.setup(feedViewModel[indexPath.row])
+        cell.setup(feedViewModel.feed[indexPath.row])
         cell.delegate = self
         
         return cell

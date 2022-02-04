@@ -25,14 +25,14 @@ final class FeedManager: OperationQueue {
 // MARK: - FeedManagerProtocol
 
 extension FeedManager: FeedManagerProtocol {
-    func fetchData(completion: @escaping ((FeedResult?, String?) -> Void)) {
+    func fetchData(completion: @escaping FeedResultCompletion) {
         cancelAllOperations()
-        let feedDataOperation = FeedDataOperation(business)
-        feedDataOperation.completionBlock = {
-            DispatchQueue.main.async {
-                let result = feedDataOperation.feedResult
-                let errorMessage = feedDataOperation.errorMessage
-                completion(result, errorMessage)
+        let feedDataOperation = FeedDataOperation(business) { result in
+            switch result {
+            case .success(let feedResult):
+                completion(.success(feedResult))
+            case .failure(let error):
+                completion(.failure(error))
             }
         }
         addOperation(feedDataOperation)

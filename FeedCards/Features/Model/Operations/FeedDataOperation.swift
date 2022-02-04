@@ -11,16 +11,13 @@ class FeedDataOperation: AsyncOperation {
     // MARK: - Private properties
 
     private var business: ImagesBusinessProtocol?
-
-    // MARK: - Properties
-
-    var feedResult: FeedResult?
-    var errorMessage: String?
+    private var completion: FeedResultCompletion?
 
     // MARK: - Initializers
 
-    init(_ business: ImagesBusinessProtocol?) {
+    init(_ business: ImagesBusinessProtocol?, completion: @escaping FeedResultCompletion) {
         self.business = business
+        self.completion = completion
     }
 
     // MARK: - Override
@@ -28,10 +25,15 @@ class FeedDataOperation: AsyncOperation {
     override func main() {
         guard !isCancelled else { return }
 
-        business?.fetchData(completion: { result, errorMessage in
-            self.feedResult = result
-            self.errorMessage = errorMessage
-            self.finish()
+        business?.fetchData(completion: { [weak self] result in
+            switch result {
+            case .success(let feedResult):
+                self?.completion?(.success(feedResult))
+            case .failure(let error):
+                self?.completion?(.failure(error))
+            }
+            
+            self?.finish()
         })
     }
 }

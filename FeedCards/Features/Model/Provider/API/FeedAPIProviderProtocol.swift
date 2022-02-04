@@ -8,5 +8,5 @@
 import UIKit
 
 protocol FeedAPIProviderProtocol {
-    func fetchData(completion: @escaping (Result<FeedResult, NetworkError>) -> Void)
+    func fetchData(completion: @escaping FeedResultCompletion)
 }

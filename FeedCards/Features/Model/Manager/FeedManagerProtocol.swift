@@ -11,6 +11,6 @@ protocol FeedManagerProtocol {
     
     // MARK: - Functions
     
-    func fetchData(completion: @escaping ((FeedResult?, String?) -> Void))
+    func fetchData(completion: @escaping FeedResultCompletion)
     func cancelOperations()
 }

@@ -15,11 +15,11 @@ enum TagType: String {
     var text: String {
         switch self {
         case .recommended:
-            return StringConstants.recommendedSeller
+            return LocalizableStrings.recommendedSeller.localized
         case .new_arrivals:
-            return StringConstants.newArrivals
+            return LocalizableStrings.newArrivals.localized
         case .other:
-            return StringConstants.other
+            return LocalizableStrings.other.localized
         }
     }
     

@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  FeedCards
+
+  Created by Daniel Oliveira on 03/02/22.
+  
+*/
+
+// MARK: - Tag type
+
+"recommendedSeller" = "Recommended Seller";
+"newArrivals" = "New Arrivals";
+"other" = "Other";
+
+// MARK: - Feed
+
+"feedTitle" = "Feed";
+
+// MARK: - Defaults
+
+"followButtonTitle" = "Follow";
+"shareButtonTitle" = "Share";

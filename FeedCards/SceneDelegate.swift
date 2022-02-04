@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        let viewController = FeedCardsViewController()
+        let viewController = FeedCardsViewController(feedViewModel: FeedCardsViewModel())
         let navigationController = UINavigationController(rootViewController: viewController)
        
         window?.rootViewController = navigationController

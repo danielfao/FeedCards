@@ -11,15 +11,9 @@ protocol FeedCardsViewModelProtocol {
     
     // MARK: - Properties
     
-    var feed: Feed { get set }
+    var feed: [Feed] { get }
     
     // MARK: - Functions
     
-    func setTagTypeText() -> String
-    func setTagTypeColor() -> UIColor
-    func setTitleText() -> String
-    func setIsFollowing() -> Bool
-    func setDescription() -> String?
-    func setFormatedData() -> String
-    func getImagesURL() -> [String]
+    func fetchData()
 }

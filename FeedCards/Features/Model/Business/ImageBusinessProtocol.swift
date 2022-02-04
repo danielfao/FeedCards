@@ -7,9 +7,11 @@
 
 import UIKit
 
+typealias FeedResultCompletion = (Result<FeedResult, NetworkError>) -> Void
+
 protocol ImagesBusinessProtocol {
     
     // MARK: - Functions
     
-    func fetchData(completion: @escaping (FeedResult?, String?) -> Void)
+    func fetchData(completion: @escaping FeedResultCompletion)
 }

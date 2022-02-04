@@ -31,7 +31,7 @@ class FeedCardsTableViewCell: UITableViewCell {
     
     // MARK: - Private properties
     
-    private var viewModel: FeedCardsViewModelProtocol?
+    private var feed: Feed?
     private var imagesFetched: Bool = false
     
     // MARK: - Private elements
@@ -75,7 +75,7 @@ class FeedCardsTableViewCell: UITableViewCell {
         let followButton = UIButton()
         followButton.backgroundColor = .systemOrange
         followButton.titleLabel?.font = .defaultRegularFont()
-        followButton.setTitle(StringConstants.followButtonTitle.uppercased(), for: .normal)
+        followButton.setTitle(LocalizableStrings.followButtonTitle.localized.uppercased(), for: .normal)
         followButton.contentEdgeInsets = UIEdgeInsets(top: .spacing(.xSmall), left: .spacing(.xSmall), bottom: .spacing(.xSmall), right: .spacing(.xSmall))
         followButton.layer.cornerRadius = .size(.tine)
         followButton.addTarget(self, action: #selector(didTapFollowButton), for: .touchUpInside)
@@ -145,7 +145,7 @@ class FeedCardsTableViewCell: UITableViewCell {
     private lazy var shareButton: UIButton = {
         let shareButton = UIButton()
         shareButton.titleLabel?.font = .defaultSemiBoldFont()
-        shareButton.setTitle(StringConstants.shareButtonTitle.uppercased(), for: .normal)
+        shareButton.setTitle(LocalizableStrings.shareButtonTitle.localized.uppercased(), for: .normal)
         shareButton.setTitleColor(.systemOrange, for: .normal)
         shareButton.setImage(shareIconImage, for: .normal)
         shareButton.imageView?.tintColor = .systemOrange
@@ -171,10 +171,49 @@ class FeedCardsTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    public func setup(_ viewModel: FeedCardsViewModelProtocol) {
-        self.viewModel = viewModel
-        setCardContent(viewModel)
-        setLayout(viewModel)
+    public func setup(_ feed: Feed) {
+        self.feed = feed
+        setCardContent()
+        setLayout()
+    }
+    
+    func setTagTypeText() -> String {
+        guard let type = TagType.init(rawValue: feed?.tag ?? String()) else {
+            return String()
+        }
+        
+        return type.text
+    }
+    
+    func setTagTypeColor() -> UIColor {
+        guard let type = TagType.init(rawValue: feed?.tag ?? String()) else {
+            return UIColor()
+        }
+        
+        return type.color
+    }
+    
+    func setTitleText() -> String {
+        return feed?.title ?? String()
+    }
+    
+    func setIsFollowing() -> Bool {
+        return feed?.isFollowing ?? false
+    }
+    
+    func setDescription() -> String? {
+        return feed?.postDescription
+    }
+    
+    func getImagesURL() -> [String] {
+        var urlString: [String] = []
+        feed?.images.forEach { urlString.append($0.imageUrl) }
+        
+        return urlString
+    }
+    
+    func setFormatedData() -> String {
+        return feed?.lastPostDate.getFormatedDate() ?? String()
     }
     
     // MARK: - Objc Functions
@@ -193,33 +232,33 @@ class FeedCardsTableViewCell: UITableViewCell {
 // MARK: - Content Setting
 
 extension FeedCardsTableViewCell {
-    private func setCardContent(_ viewModel: FeedCardsViewModelProtocol) {
-        setCardTitle(viewModel)
-        setTagView(viewModel)
-        setFollowingButton(viewModel)
-        setDateLabel(viewModel)
+    private func setCardContent() {
+        setCardTitle()
+        setTagView()
+        setFollowingButton()
+        setDateLabel()
     }
     
-    private func setTagView(_ viewModel: FeedCardsViewModelProtocol) {
-        tagView.backgroundColor = viewModel.setTagTypeColor()
-        tagLabel.text = viewModel.setTagTypeText()
+    private func setTagView() {
+        tagView.backgroundColor = setTagTypeColor()
+        tagLabel.text = setTagTypeText()
     }
     
-    private func setCardTitle(_ viewModel: FeedCardsViewModelProtocol) {
-        titleLabel.text = viewModel.setTitleText()
+    private func setCardTitle() {
+        titleLabel.text = setTitleText()
     }
     
-    private func setFollowingButton(_ viewModel: FeedCardsViewModelProtocol) {
-        if !viewModel.setIsFollowing() {
+    private func setFollowingButton() {
+        if !setIsFollowing() {
             followButton.removeFromSuperview()
         } else {
             setConstraintFollowButton()
         }
     }
     
-    private func setStackViewImageCards(_ viewModel: FeedCardsViewModelProtocol) {
+    private func setStackViewImageCards() {
         if !self.imagesFetched {
-            let imagesURL = viewModel.getImagesURL()
+            let imagesURL = getImagesURL()
             for urlString in imagesURL {
                 let image = UIImageView()
                 image.setImage(imageUrl: urlString)
@@ -233,32 +272,32 @@ extension FeedCardsTableViewCell {
         }
     }
     
-    private func setDescriptionTextView(_ viewModel: FeedCardsViewModelProtocol) {
-        if let descriptionText = viewModel.setDescription() {
+    private func setDescriptionTextView() {
+        if let descriptionText = setDescription() {
             postDescriptionLabel.text = descriptionText
         }
     }
     
-    private func setDateLabel(_ viewModel: FeedCardsViewModelProtocol) {
-        dateLabel.text = viewModel.setFormatedData()
+    private func setDateLabel() {
+        dateLabel.text = setFormatedData()
     }
 }
 
 // MARK: - Layout
 
 extension FeedCardsTableViewCell {
-    private func setLayout(_ viewModel: FeedCardsViewModelProtocol) {
+    private func setLayout() {
         setConstraintContainerLayout()
         setConstraintTagView()
-        setFollowingButton(viewModel)
+        setFollowingButton()
         setConstraintTitleLabel()
-        setStackViewImageCards(viewModel)
+        setStackViewImageCards()
         setConstraintStackView()
         
-        if viewModel.setDescription() != nil {
+        if setDescription() != nil {
             setConstraintDateLabel(hasDescription: true)
             setConstraintPostDescriptionLabel()
-            setDescriptionTextView(viewModel)
+            setDescriptionTextView()
         } else {
             setConstraintDateLabel(hasDescription: false)
         }

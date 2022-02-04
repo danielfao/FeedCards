@@ -30,13 +30,13 @@ final class ImagesBusiness {
 // MARK: - ImagesBusinessProtocol
 
 extension ImagesBusiness: ImagesBusinessProtocol {
-    func fetchData(completion: @escaping (FeedResult?, String?) -> Void) {
+    func fetchData(completion: @escaping FeedResultCompletion) {
         provider?.fetchData(completion: { result in
             switch result {
             case let .success(feedResult):
-                completion(feedResult, nil)
+                completion(.success(feedResult))
             case let .failure(error):
-                completion(nil, self.erroMessage(error))
+                completion(.failure(error))
             }
         })
     }
