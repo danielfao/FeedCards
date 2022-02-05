@@ -37,7 +37,7 @@ class FeedCardsViewModelCellTests: XCTestCase {
             return
         }
         
-        let urlString = viewModel.getImagesURL()
+        let urlString = viewModel.getImagesURL
         XCTAssertNotNil(urlString, "getImagesURL function should not be nil")
         XCTAssertTrue(urlString == urlStrings, "getImagesURL function should return \(urlStrings)")
     }
@@ -49,7 +49,7 @@ class FeedCardsViewModelCellTests: XCTestCase {
             return
         }
         
-        let stringTitle = viewModel.getTitleText()
+        let stringTitle = viewModel.getTitleText
         XCTAssertNotNil(stringTitle, "getTagTypeText function should not be nil")
         XCTAssertTrue(stringTitle == titleString, "getTitleText function should return \(titleString)")
     }
@@ -61,7 +61,7 @@ class FeedCardsViewModelCellTests: XCTestCase {
             return
         }
         
-        let descriptionText = viewModel.getDescription()
+        let descriptionText = viewModel.getDescription
         XCTAssertNotNil(descriptionText, "getDescription function should not be nil")
         XCTAssertTrue(descriptionText == postDescription, "getDescription function should return \(postDescription)")
     }
@@ -73,7 +73,7 @@ class FeedCardsViewModelCellTests: XCTestCase {
             return
         }
         
-        let dateString = viewModel.getFormatedDate()
+        let dateString = viewModel.getFormatedDate
         XCTAssertNotNil(dateString, "getFormatedDate function should not be nil")
         XCTAssertTrue(dateString.contains(datePhraseString), "getFormatedDate function should return the sentence \(datePhraseString) and the date of the post")
     }
@@ -85,7 +85,7 @@ class FeedCardsViewModelCellTests: XCTestCase {
             return
         }
         
-        let tagTypeString = viewModel.getTagTypeText()
+        let tagTypeString = viewModel.getTagTypeText
         XCTAssertNotNil(tagTypeString, "getTagTypeText function should not be nil")
         XCTAssertTrue(tagTypeString == TagType.recommended.text, "getTagTypeText function should return \(TagType.recommended.text)")
     }
@@ -97,7 +97,7 @@ class FeedCardsViewModelCellTests: XCTestCase {
             return
         }
         
-        let tagTypeColor = viewModel.getTagTypeColor()
+        let tagTypeColor = viewModel.getTagTypeColor
         XCTAssertNotNil(tagTypeColor, "getTagTypeColor function should not be nil")
         XCTAssertTrue(tagTypeColor == UIColor.systemGray, "getTagTypeText function should return \(TagType.recommended.color)")
     }
@@ -109,7 +109,7 @@ class FeedCardsViewModelCellTests: XCTestCase {
             return
         }
         
-        let isFollowing = viewModel.getIsFollowing()
+        let isFollowing = viewModel.getIsFollowing
         XCTAssertNotNil(isFollowing, "getIsFollowing function should not be nil")
         XCTAssertTrue(isFollowing, "getIsFollowing function should return true")
     }
