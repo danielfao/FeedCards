@@ -16,6 +16,7 @@ enum Size: CGFloat {
     case xMedium = 12.0
     case medium = 16.0
     case big = 24.0
+    case huge = 100.0
 }
 
 // MARK: - CGFloat extension

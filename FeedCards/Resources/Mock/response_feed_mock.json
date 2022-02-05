@@ -16,29 +16,49 @@
                 {
                     "id": "12",
                     "imageUrl": "https://www.beach.com/wp-content/uploads/2019/04/rsz_shutterstock_377796004-680x380.jpg"
+                },
+                {
+                    "id": "13",
+                    "imageUrl": "https://static.wikia.nocookie.net/heman/images/4/46/He-mantoy83.jpg/revision/latest?cb=20090716170318"
+                },
+                {
+                    "id": "14",
+                    "imageUrl": "https://superlegalbrinquedos.vteximg.com.br/arquivos/ids/194374-800-800/HGH45-Figura-Colecionavel-He-Man-and-the-Masters-Of-The-Universe-Esqueleto-14-cm-Mattel-2.jpg?v=637656843266000000"
+                },
+                {
+                    "id": "15",
+                    "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_658916-MLB46165833108_052021-O.jpg"
+                },
+                {
+                    "id": "16",
+                    "imageUrl": "https://images-americanas.b2w.io/produtos/01/00/img/3393313/1/3393313138_1SZ.jpg"
                 }
             ],
-            "lastPostDate": "2022-02-03T13:45:00.000Z"
+            "lastPostDate": "2022-02-05T13:45:00.000Z"
         },
         {
             "tag": "recommended",
             "isFollowing": false,
-            "title": "Seller short name",
+            "title": "Irmão do Jorel",
             "images": [
                 {
                     "id": "20",
-                    "imageUrl": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTN8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80"
+                    "imageUrl": "https://cdn.shopify.com/s/files/1/0495/8368/5792/products/TEXTURA-IRMAO-DO-JOREL.jpg?v=1611335005"
                 },
                 {
                     "id": "21",
-                    "imageUrl": "https://blog-www.pods.com/wp-content/uploads/2020/07/Feature-Home-Office-GEtty-Resized.jpg"
+                    "imageUrl": "https://i.pinimg.com/originals/e6/c4/2c/e6c42c7048821ad89dd1782cd71a9f6d.jpg"
                 },
                 {
                     "id": "22",
-                    "imageUrl": "https://www.beach.com/wp-content/uploads/2019/04/rsz_shutterstock_377796004-680x380.jpg"
+                    "imageUrl": "https://i.pinimg.com/originals/d7/bb/3d/d7bb3deaa4863527797e72eafa77d8c6.jpg"
+                },
+                {
+                    "id": "23",
+                    "imageUrl": "https://cf.shopee.com.br/file/f8c4eb107badf12e598b5284519f5cb7"
                 }
             ],
-            "lastPostDate": "2021-12-01T13:45:00.000Z"
+            "lastPostDate": "2022-01-10T08:45:00.000Z"
         },
         {
             "tag": "new_arrivals",
@@ -64,22 +84,26 @@
         {
             "tag": "other",
             "isFollowing": true,
-            "title": "Seller with a very long name that needs two line to fit",
+            "title": "He man, Masters of the Universe",
             "images": [
                 {
                     "id": "40",
-                    "imageUrl": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTN8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80"
+                    "imageUrl": "https://static.wikia.nocookie.net/heman/images/4/46/He-mantoy83.jpg/revision/latest?cb=20090716170318"
                 },
                 {
                     "id": "41",
-                    "imageUrl": "https://blog-www.pods.com/wp-content/uploads/2020/07/Feature-Home-Office-GEtty-Resized.jpg"
+                    "imageUrl": "https://superlegalbrinquedos.vteximg.com.br/arquivos/ids/194374-800-800/HGH45-Figura-Colecionavel-He-Man-and-the-Masters-Of-The-Universe-Esqueleto-14-cm-Mattel-2.jpg?v=637656843266000000"
                 },
                 {
                     "id": "42",
-                    "imageUrl": "https://www.beach.com/wp-content/uploads/2019/04/rsz_shutterstock_377796004-680x380.jpg"
+                    "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_658916-MLB46165833108_052021-O.jpg"
+                },
+                {
+                    "id": "43",
+                    "imageUrl": "https://images-americanas.b2w.io/produtos/01/00/img/3393313/1/3393313138_1SZ.jpg"
                 }
             ],
-            "postDescription": "Just in! New items from Jerseygramm and Brandings available. Check them out!",
+            "postDescription": "When he holds up the magical Sword of Power and utters the words 'By the power of Grayskull', Prince Adam transforms into Eternia's greatest champion, He-Man, who uses his powers to defend the realm from Skeletor and his evil forces.",
             "lastPostDate": "2021-11-04T13:45:00.000Z"
         }
     ]

@@ -39,15 +39,6 @@ class FeedAPIProviderMock: FeedAPIProviderProtocol {
             } else {
                 fatalError("Can't find \(file).json file")
             }
-                
-        }
-    }
-    
-    func downloadImage(image: Image, completion: @escaping (Result<UIImage, NetworkError>) -> Void) {
-        if let error = error {
-            completion(.failure(error))
-        } else {
-            completion(.success(UIImage()))
         }
     }
 }

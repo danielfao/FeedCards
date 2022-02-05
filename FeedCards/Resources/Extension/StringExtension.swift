@@ -47,8 +47,8 @@ extension String {
                 guard let dayString = dayFormatter.string(from: delta), let consecutiveDays = Int(dayString.trimmingCharacters(in: CharacterSet(charactersIn: "0123456789.").inverted)) else { return String() }
                 if consecutiveDays > .zero {
                     timeFormatter.dateFormat = "dd-MM-yyyy"
-                    timeFormatter.string(from: currentDate)
-                    let date = timeFormatter.string(from: currentDate)
+                    timeFormatter.string(from: postDate)
+                    let date = timeFormatter.string(from: postDate)
                     dateFormatted = String(format: LocalizableStrings.postedAnotherDay.localized, date)
                 } else {
                     timeFormatter.timeStyle = .short

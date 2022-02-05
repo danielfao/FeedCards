@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FeedCardsViewModelCell: FeedCardsViewModelCellProtocol {
+class FeedCardsModelViewCell: FeedCardsModelViewCellProtocol {
     
     // MARK: - Public properties
     
@@ -15,7 +15,7 @@ class FeedCardsViewModelCell: FeedCardsViewModelCellProtocol {
     
     // MARK: - Computed Properties
     
-    var getTagTypeText: String {
+    var tagTypeText: String {
         guard let type = TagType.init(rawValue: feed?.tag ?? String()) else {
             return String()
         }
@@ -23,7 +23,7 @@ class FeedCardsViewModelCell: FeedCardsViewModelCellProtocol {
         return type.text
     }
     
-    var getTagTypeColor: UIColor {
+    var tagTypeColor: UIColor {
         guard let type = TagType.init(rawValue: feed?.tag ?? String()) else {
             return UIColor()
         }
@@ -31,32 +31,39 @@ class FeedCardsViewModelCell: FeedCardsViewModelCellProtocol {
         return type.color
     }
     
-    var getTitleText: String {
+    var titleText: String {
         return feed?.title ?? String()
     }
     
-    var getIsFollowing: Bool {
+    var isFollowing: Bool {
         return feed?.isFollowing ?? false
     }
     
-    var getDescription: String? {
+    var description: String? {
         return feed?.postDescription
     }
     
-    var getImagesURL: [String] {
+    var imagesURL: [String] {
         var urlString: [String] = []
         feed?.images.forEach { urlString.append($0.imageUrl) }
         
         return urlString
     }
     
-    var getFormatedDate: String {
+    var imagesId: [String] {
+        var imagesId: [String] = []
+        feed?.images.forEach { imagesId.append($0.id) }
+        
+        return imagesId
+    }
+    
+    var formatedDate: String {
         return feed?.lastPostDate.getFormatedDate() ?? String()
     }
     
     // MARK: - Initializer
     
-    required init(_ feed: Feed?) {
+    required init(with feed: Feed?) {
         self.feed = feed
     }
 }

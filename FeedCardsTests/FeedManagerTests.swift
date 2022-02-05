@@ -29,20 +29,29 @@ class FeedManagerTests: XCTestCase {
         "https://www.beach.com/wp-content/uploads/2019/04/rsz_shutterstock_377796004-680x380.jpg"
     ]
     
+    // MARK: - Setup
+    
+    var provider: FeedAPIProviderMock?
+    var business: FeedBusiness?
+    var manager: FeedManager?
+    var feeds: [Feed] = []
+    
+    override func setUp() {
+        super.setUp()
+        
+        provider = FeedAPIProviderMock(file: "response_feed_mock_test")
+        business = FeedBusiness(provider: provider!)
+        manager = FeedManager(business: business!)
+    }
+    
     // MARK: - Tests
     
     func testManagerSuccessedFetchOneData() {
-        let provider = FeedAPIProviderMock(file: "response_feed_mock_test")
-        let business = FeedBusiness(provider: provider)
-        let manager = FeedManager(business: business)
-        
-        var feed: [Feed] = []
-        
         let expectation = self.expectation(description: "fetching feed data")
-        manager.fetchData(completion: { result in
+        manager?.fetchData(completion: {  [weak self] result in
             switch result {
             case .success(let feedResult):
-                feed = feedResult.feed
+                self?.feeds = feedResult.feed
                 expectation.fulfill()
             case .failure(_ ):
                 break
@@ -50,21 +59,15 @@ class FeedManagerTests: XCTestCase {
         })
         
         waitForExpectations(timeout: 5, handler: nil)
-        XCTAssertEqual(feed.count, 1, "Feed count should be amount of 1")
+        XCTAssertEqual(feeds.count, 1, "Feed count should be amount of 1")
     }
     
     func testManagerDataFetched() {
-        let provider = FeedAPIProviderMock(file: "response_feed_mock_test")
-        let business = FeedBusiness(provider: provider)
-        let manager = FeedManager(business: business)
-        
-        var feeds: [Feed] = []
-        
         let expectation = self.expectation(description: "fetching feed data")
-        manager.fetchData(completion: { result in
+        manager?.fetchData(completion: { [weak self] result in
             switch result {
             case .success(let feedResult):
-                feeds = feedResult.feed
+                self?.feeds = feedResult.feed
                 expectation.fulfill()
             case .failure(_ ):
                 break
@@ -73,15 +76,15 @@ class FeedManagerTests: XCTestCase {
         
         waitForExpectations(timeout: 5, handler: nil)
         
-        for feed in feeds {
+        feeds.forEach { feed in
             print(feed)
-            print(self.mockedFeed)
-            XCTAssertEqual(feed.tag, self.mockedFeed.tag, "feed.tag function should return the tag: \(String(describing: self.mockedFeed.tag))")
-            XCTAssertEqual(feed.title, self.mockedFeed.title, "feed.title function should return the title: \(String(describing: self.mockedFeed.title))")
-            XCTAssertEqual(feed.isFollowing, self.mockedFeed.isFollowing, "feed.isFollowing function should return the bool: \(String(describing: self.mockedFeed.isFollowing))")
-            XCTAssertEqual(feed.images.count, self.mockedFeed.images.count, "feed.images.count function should return the counter: \(String(describing: self.mockedFeed.images.count))")
-            XCTAssertEqual(feed.postDescription, self.mockedFeed.postDescription, "feed.postDescription function should return the postDescription: \(String(describing: self.mockedFeed.postDescription))")
-            XCTAssertEqual(feed.lastPostDate, self.mockedFeed.lastPostDate, "feed.lastPostDate function should return the lastPostDate: \(String(describing: self.mockedFeed.lastPostDate))")
+            print(mockedFeed)
+            XCTAssertEqual(feed.tag, mockedFeed.tag, "feed.tag function should return the tag: \(String(describing: mockedFeed.tag))")
+            XCTAssertEqual(feed.title, mockedFeed.title, "feed.title function should return the title: \(String(describing: mockedFeed.title))")
+            XCTAssertEqual(feed.isFollowing, mockedFeed.isFollowing, "feed.isFollowing function should return the bool: \(String(describing: mockedFeed.isFollowing))")
+            XCTAssertEqual(feed.images.count, mockedFeed.images.count, "feed.images.count function should return the counter: \(String(describing: mockedFeed.images.count))")
+            XCTAssertEqual(feed.postDescription, mockedFeed.postDescription, "feed.postDescription function should return the postDescription: \(String(describing: mockedFeed.postDescription))")
+            XCTAssertEqual(feed.lastPostDate, mockedFeed.lastPostDate, "feed.lastPostDate function should return the lastPostDate: \(String(describing: mockedFeed.lastPostDate))")
         }
     }
 }

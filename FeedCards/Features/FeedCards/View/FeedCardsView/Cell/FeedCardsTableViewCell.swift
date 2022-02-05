@@ -10,13 +10,13 @@ import UIKit
 protocol FeedCardsTableViewCellDelegate: AnyObject {
     func didTapFollow()
     func didTapShare()
+    func didTapImage(_ id: String)
 }
 
 class FeedCardsTableViewCell: UITableViewCell {
     
     // MARK: - Constants
     
-    private let height: CGFloat = 100
     private let separatorLineHeight: CGFloat = 1
     private let numberOfLines: Int = 1
     private let shareIconImage: UIImage = UIImage(named: "share_icon") ?? UIImage()
@@ -33,7 +33,8 @@ class FeedCardsTableViewCell: UITableViewCell {
     
     private var feed: Feed?
     private var imagesFetched: Bool = false
-    private var viewModel: FeedCardsViewModelCellProtocol?
+    private var model: FeedCardsModelViewCellProtocol?
+    private var imageUrlStrings: [String]?
     
     // MARK: - Private elements
     
@@ -104,14 +105,18 @@ class FeedCardsTableViewCell: UITableViewCell {
         return separatorLine
     }()
     
-    private lazy var stackCardView: UIStackView = {
-        let stackCardView = UIStackView()
-        stackCardView.distribution = .fillEqually
-        stackCardView.axis = .horizontal
-        stackCardView.spacing = .spacing(.medium)
-        stackCardView.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
         
-        return stackCardView
+        let collectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.register(FeedCardsCollectionViewCell.self, forCellWithReuseIdentifier: FeedCardsCollectionViewCell.identifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
     }()
     
     private lazy var postDescriptionLine: UIView = {
@@ -172,8 +177,8 @@ class FeedCardsTableViewCell: UITableViewCell {
         selectionStyle = .none
     }
     
-    public func setup(_ feed: Feed) {
-        self.viewModel = FeedCardsViewModelCell(feed)
+    public func setup(_ model: FeedCardsModelViewCellProtocol) {
+        self.model = model
         setCardContent()
         setLayout()
     }
@@ -202,46 +207,31 @@ extension FeedCardsTableViewCell {
     }
     
     private func setTagView() {
-        tagView.backgroundColor = viewModel?.getTagTypeColor
-        tagLabel.text = viewModel?.getTagTypeText
+        tagView.backgroundColor = model?.tagTypeColor
+        tagLabel.text = model?.tagTypeText
     }
     
     private func setCardTitle() {
-        titleLabel.text = viewModel?.getTitleText
+        titleLabel.text = model?.titleText
     }
     
     private func setFollowingButton() {
-        if (viewModel?.getIsFollowing ?? false) {
+        guard let model = model else { return }
+        if model.isFollowing {
             followButton.removeFromSuperview()
         } else {
             setConstraintFollowButton()
         }
     }
     
-    private func setStackViewImageCards() {
-        if !self.imagesFetched {
-            guard let imagesUrl = viewModel?.getImagesURL else { return }
-            
-            for urlString in imagesUrl {
-                let image = UIImageView()
-                image.setImage(imageUrl: urlString)
-                image.layer.cornerRadius = .size(.xSmall)
-                image.contentMode = .scaleAspectFill
-                image.clipsToBounds = true
-                self.stackCardView.addArrangedSubview(image)
-                self.imagesFetched = true
-            }
-        }
-    }
-    
     private func setDescriptionTextView() {
-        if let descriptionText = viewModel?.getDescription {
+        if let descriptionText = model?.description {
             postDescriptionLabel.text = descriptionText
         }
     }
     
     private func setDateLabel() {
-        dateLabel.text = viewModel?.getFormatedDate
+        dateLabel.text = model?.formatedDate
     }
 }
 
@@ -253,10 +243,9 @@ extension FeedCardsTableViewCell {
         setConstraintTagView()
         setFollowingButton()
         setConstraintTitleLabel()
-        setStackViewImageCards()
-        setConstraintStackView()
+        setCollectionView()
         
-        if viewModel?.getDescription != nil {
+        if model?.description != nil {
             setConstraintDateLabel(hasDescription: true)
             setConstraintPostDescriptionLabel()
             setDescriptionTextView()
@@ -330,14 +319,14 @@ extension FeedCardsTableViewCell {
         ])
     }
     
-    private func setConstraintStackView() {
-        containerView.addSubview(stackCardView)
+    private func setCollectionView() {
+        containerView.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
-            stackCardView.heightAnchor.constraint(equalToConstant: height),
-            stackCardView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .size(.medium)),
-            stackCardView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -.size(.medium)),
-            stackCardView.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: .size(.medium))
+            collectionView.heightAnchor.constraint(equalToConstant: .size(.huge)),
+            collectionView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .size(.medium)),
+            collectionView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -.size(.medium)),
+            collectionView.topAnchor.constraint(equalTo: separatorLine.bottomAnchor, constant: .size(.medium))
         ])
     }
     
@@ -353,10 +342,9 @@ extension FeedCardsTableViewCell {
             NSLayoutConstraint.activate([
                 dateLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: .size(.medium)),
                 dateLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -.size(.medium)),
-                dateLabel.topAnchor.constraint(equalTo: stackCardView.bottomAnchor, constant: .size(.medium))
+                dateLabel.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: .size(.medium))
             ])
         }
-        
     }
     
     private func setConstraintShareButton() {
@@ -373,7 +361,7 @@ extension FeedCardsTableViewCell {
         containerView.addSubview(postDescriptionLabel)
         
         NSLayoutConstraint.activate([
-            postDescriptionLine.topAnchor.constraint(equalTo: stackCardView.bottomAnchor, constant: .size(.medium)),
+            postDescriptionLine.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: .size(.medium)),
             postDescriptionLine.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             postDescriptionLine.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             postDescriptionLine.heightAnchor.constraint(equalToConstant: separatorLineHeight)
@@ -385,5 +373,40 @@ extension FeedCardsTableViewCell {
             postDescriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -.size(.medium)),
             postDescriptionLabel.bottomAnchor.constraint(equalTo: dateLabel.topAnchor, constant: -.size(.big))
         ])
+    }
+}
+
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+
+extension FeedCardsTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return model?.imagesURL.count ?? .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeedCardsCollectionViewCell.identifier, for: indexPath) as? FeedCardsCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        if let stringUrl = model?.imagesURL {
+            cell.setup(stringUrl[indexPath.row])
+        }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let numberOfCellsInRow: Int = 3
+        guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return .zero }
+        let totalSpace = flowLayout.sectionInset.left + flowLayout.sectionInset.right + (flowLayout.minimumInteritemSpacing * CGFloat(numberOfCellsInRow - 1))
+        let size = Int((collectionView.bounds.width - totalSpace) / CGFloat(numberOfCellsInRow))
+        
+        return CGSize(width: size, height: size)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let imagesIds = model?.imagesId
+        guard let imageIndex = imagesIds?[indexPath.row] else { return }
+        delegate?.didTapImage(imageIndex)
     }
 }

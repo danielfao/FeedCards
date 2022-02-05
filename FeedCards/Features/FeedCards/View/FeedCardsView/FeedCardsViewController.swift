@@ -45,7 +45,7 @@ class FeedCardsViewController: UIViewController {
         tableView?.backgroundColor = .lightGray
         tableView?.translatesAutoresizingMaskIntoConstraints = false
         tableView?.rowHeight = UITableView.automaticDimension
-        tableView?.estimatedRowHeight = 100
+        tableView?.estimatedRowHeight = .size(.huge)
         tableView?.register(FeedCardsTableViewCell.self, forCellReuseIdentifier: FeedCardsTableViewCell.identifier)
         tableView?.separatorStyle = .none
         tableView?.dataSource = self
@@ -68,7 +68,8 @@ extension FeedCardsViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
-        cell.setup(feedViewModel.feed[indexPath.row])
+        let model = FeedCardsModelViewCell(with: feedViewModel.feed[indexPath.row])
+        cell.setup(model)
         cell.delegate = self
         
         return cell
@@ -78,6 +79,10 @@ extension FeedCardsViewController: UITableViewDataSource, UITableViewDelegate {
 // MARK: - FeedTableViewCellDelegate
 
 extension FeedCardsViewController: FeedCardsTableViewCellDelegate {
+    func didTapImage(_ id: String) {
+        print("Did tap on image with ID: \(id)")
+    }
+    
     func didTapFollow() {
         print("Did tap Follow Button")
     }

@@ -8,7 +8,7 @@
 @testable import FeedCards
 import XCTest
 
-class FeedCardsViewModelCellTests: XCTestCase {
+class FeedCardsModelCellTests: XCTestCase {
     
     // MARK: - Mocked constants
     
@@ -28,88 +28,82 @@ class FeedCardsViewModelCellTests: XCTestCase {
     let datePhraseString = "Posted on:"
     let titleString = "Seller with a very long name that needs two line to fit"
     
-    private var viewModel: FeedCardsViewModelCell?
+    private var model: FeedCardsModelViewCell?
+    
+    // MARK: - Setup
+    
+    override func setUp() {
+        super.setUp()
+        
+        model = FeedCardsModelViewCell(with: feeds)
+    }
     
     func testGetImagesURLFunction() {
-        viewModel = FeedCardsViewModelCell(feeds)
-        
-        guard let viewModel = viewModel else {
+        guard let model = model else {
             return
         }
         
-        let urlString = viewModel.getImagesURL
+        let urlString = model.imagesURL
         XCTAssertNotNil(urlString, "getImagesURL function should not be nil")
         XCTAssertTrue(urlString == urlStrings, "getImagesURL function should return \(urlStrings)")
     }
     
     func testGetTitleText() {
-        viewModel = FeedCardsViewModelCell(feeds)
-        
-        guard let viewModel = viewModel else {
+        guard let model = model else {
             return
         }
         
-        let stringTitle = viewModel.getTitleText
+        let stringTitle = model.titleText
         XCTAssertNotNil(stringTitle, "getTagTypeText function should not be nil")
         XCTAssertTrue(stringTitle == titleString, "getTitleText function should return \(titleString)")
     }
     
     func testGetDescriptionFunction() {
-        viewModel = FeedCardsViewModelCell(feeds)
-        
-        guard let viewModel = viewModel else {
+        guard let model = model else {
             return
         }
         
-        let descriptionText = viewModel.getDescription
+        let descriptionText = model.description
         XCTAssertNotNil(descriptionText, "getDescription function should not be nil")
         XCTAssertTrue(descriptionText == postDescription, "getDescription function should return \(postDescription)")
     }
     
     func testGetFormatedData() {
-        viewModel = FeedCardsViewModelCell(feeds)
-        
-        guard let viewModel = viewModel else {
+        guard let model = model else {
             return
         }
         
-        let dateString = viewModel.getFormatedDate
+        let dateString = model.formatedDate
         XCTAssertNotNil(dateString, "getFormatedDate function should not be nil")
         XCTAssertTrue(dateString.contains(datePhraseString), "getFormatedDate function should return the sentence \(datePhraseString) and the date of the post")
     }
     
     func testTagTypeTextFunction() {
-        viewModel = FeedCardsViewModelCell(feeds)
-        
-        guard let viewModel = viewModel else {
+        guard let model = model else {
             return
         }
         
-        let tagTypeString = viewModel.getTagTypeText
+        let tagTypeString = model.tagTypeText
         XCTAssertNotNil(tagTypeString, "getTagTypeText function should not be nil")
         XCTAssertTrue(tagTypeString == TagType.recommended.text, "getTagTypeText function should return \(TagType.recommended.text)")
     }
     
     func testTagTypeColorFunction() {
-        viewModel = FeedCardsViewModelCell(feeds)
-        
-        guard let viewModel = viewModel else {
+        guard let model = model else {
             return
         }
         
-        let tagTypeColor = viewModel.getTagTypeColor
+        let tagTypeColor = model.tagTypeColor
         XCTAssertNotNil(tagTypeColor, "getTagTypeColor function should not be nil")
         XCTAssertTrue(tagTypeColor == UIColor.systemGray, "getTagTypeText function should return \(TagType.recommended.color)")
     }
     
     func testGetIsFollowingFunction() {
-        viewModel = FeedCardsViewModelCell(feeds)
-        
-        guard let viewModel = viewModel else {
+        guard let model = model else {
             return
         }
         
-        let isFollowing = viewModel.getIsFollowing
+        let isFollowing = model.isFollowing
         XCTAssertNotNil(isFollowing, "getIsFollowing function should not be nil")
         XCTAssertTrue(isFollowing, "getIsFollowing function should return true")
     }
