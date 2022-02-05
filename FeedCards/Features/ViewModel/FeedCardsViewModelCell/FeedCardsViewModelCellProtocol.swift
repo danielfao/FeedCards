@@ -13,13 +13,13 @@ protocol FeedCardsViewModelCellProtocol {
     
     var feed: Feed? { get }
     
-    // MARK: - Functions
+    // MARK: - Computed properties
     
-    func getTagTypeText() -> String
-    func getTagTypeColor() -> UIColor
-    func getTitleText() -> String
-    func getIsFollowing() -> Bool
-    func getDescription() -> String?
-    func getImagesURL() -> [String]
-    func getFormatedDate() -> String
+    var getTagTypeText: String { get }
+    var getTagTypeColor: UIColor { get }
+    var getTitleText: String { get }
+    var getIsFollowing: Bool { get }
+    var getDescription: String? { get }
+    var getImagesURL: [String] { get }
+    var getFormatedDate: String { get }
 }

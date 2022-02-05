@@ -13,15 +13,9 @@ class FeedCardsViewModelCell: FeedCardsViewModelCellProtocol {
     
     var feed: Feed?
     
-    // MARK: - Initializer
+    // MARK: - Computed Properties
     
-    required init(_ feed: Feed?) {
-        self.feed = feed
-    }
-    
-    // MARK: - Functions
-    
-    func getTagTypeText() -> String {
+    var getTagTypeText: String {
         guard let type = TagType.init(rawValue: feed?.tag ?? String()) else {
             return String()
         }
@@ -29,7 +23,7 @@ class FeedCardsViewModelCell: FeedCardsViewModelCellProtocol {
         return type.text
     }
     
-    func getTagTypeColor() -> UIColor {
+    var getTagTypeColor: UIColor {
         guard let type = TagType.init(rawValue: feed?.tag ?? String()) else {
             return UIColor()
         }
@@ -37,26 +31,32 @@ class FeedCardsViewModelCell: FeedCardsViewModelCellProtocol {
         return type.color
     }
     
-    func getTitleText() -> String {
+    var getTitleText: String {
         return feed?.title ?? String()
     }
     
-    func getIsFollowing() -> Bool {
+    var getIsFollowing: Bool {
         return feed?.isFollowing ?? false
     }
     
-    func getDescription() -> String? {
+    var getDescription: String? {
         return feed?.postDescription
     }
     
-    func getImagesURL() -> [String] {
+    var getImagesURL: [String] {
         var urlString: [String] = []
         feed?.images.forEach { urlString.append($0.imageUrl) }
         
         return urlString
     }
     
-    func getFormatedDate() -> String {
+    var getFormatedDate: String {
         return feed?.lastPostDate.getFormatedDate() ?? String()
+    }
+    
+    // MARK: - Initializer
+    
+    required init(_ feed: Feed?) {
+        self.feed = feed
     }
 }

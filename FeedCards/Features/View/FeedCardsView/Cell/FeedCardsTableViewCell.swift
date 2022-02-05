@@ -10,7 +10,6 @@ import UIKit
 protocol FeedCardsTableViewCellDelegate: AnyObject {
     func didTapFollow()
     func didTapShare()
-    func didTapImage(_ imageId: String)
 }
 
 class FeedCardsTableViewCell: UITableViewCell {
@@ -190,11 +189,6 @@ class FeedCardsTableViewCell: UITableViewCell {
     private func didTapShareButton() {
         delegate?.didTapShare()
     }
-    
-    @objc
-    private func didTapStackImageView(_ imageId: String) {
-        delegate?.didTapImage(imageId)
-    }
 }
 
 // MARK: - Content Setting
@@ -208,16 +202,16 @@ extension FeedCardsTableViewCell {
     }
     
     private func setTagView() {
-        tagView.backgroundColor = viewModel?.getTagTypeColor()
-        tagLabel.text = viewModel?.getTagTypeText()
+        tagView.backgroundColor = viewModel?.getTagTypeColor
+        tagLabel.text = viewModel?.getTagTypeText
     }
     
     private func setCardTitle() {
-        titleLabel.text = viewModel?.getTitleText()
+        titleLabel.text = viewModel?.getTitleText
     }
     
     private func setFollowingButton() {
-        if !(viewModel?.getIsFollowing() ?? false) {
+        if (viewModel?.getIsFollowing ?? false) {
             followButton.removeFromSuperview()
         } else {
             setConstraintFollowButton()
@@ -226,8 +220,8 @@ extension FeedCardsTableViewCell {
     
     private func setStackViewImageCards() {
         if !self.imagesFetched {
-            guard let imagesUrl = viewModel?.getImagesURL() else { return }
-
+            guard let imagesUrl = viewModel?.getImagesURL else { return }
+            
             for urlString in imagesUrl {
                 let image = UIImageView()
                 image.setImage(imageUrl: urlString)
@@ -236,19 +230,18 @@ extension FeedCardsTableViewCell {
                 image.clipsToBounds = true
                 self.stackCardView.addArrangedSubview(image)
                 self.imagesFetched = true
-                self.layoutIfNeeded()
             }
         }
     }
     
     private func setDescriptionTextView() {
-        if let descriptionText = viewModel?.getDescription() {
+        if let descriptionText = viewModel?.getDescription {
             postDescriptionLabel.text = descriptionText
         }
     }
     
     private func setDateLabel() {
-        dateLabel.text = viewModel?.getFormatedDate()
+        dateLabel.text = viewModel?.getFormatedDate
     }
 }
 
@@ -263,7 +256,7 @@ extension FeedCardsTableViewCell {
         setStackViewImageCards()
         setConstraintStackView()
         
-        if viewModel?.getDescription() != nil {
+        if viewModel?.getDescription != nil {
             setConstraintDateLabel(hasDescription: true)
             setConstraintPostDescriptionLabel()
             setDescriptionTextView()

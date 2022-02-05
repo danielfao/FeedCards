@@ -173,8 +173,7 @@
 		667B97EB27622B7B007C97C9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				667B97F927622E82007C97C9 /* Cell */,
-				667B97FA27622EA9007C97C9 /* FeedCardsViewController.swift */,
+				66E94EFF27AEB759000687B1 /* FeedCardsView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -343,6 +342,15 @@
 				667B97EA27622B75007C97C9 /* Model */,
 			);
 			path = Features;
+			sourceTree = "<group>";
+		};
+		66E94EFF27AEB759000687B1 /* FeedCardsView */ = {
+			isa = PBXGroup;
+			children = (
+				667B97F927622E82007C97C9 /* Cell */,
+				667B97FA27622EA9007C97C9 /* FeedCardsViewController.swift */,
+			);
+			path = FeedCardsView;
 			sourceTree = "<group>";
 		};
 		C1F6898471DA4FA8CFCAD2DA /* Pods */ = {
