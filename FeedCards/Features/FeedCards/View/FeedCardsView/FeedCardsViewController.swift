@@ -32,7 +32,6 @@ class FeedCardsViewController: UIViewController {
         
         title = LocalizableStrings.feedTitle.localized
 
-        navigationController?.view.backgroundColor = .lightGray
         setTableView()
         feedViewModel.fetchData()
     }
@@ -81,13 +80,29 @@ extension FeedCardsViewController: UITableViewDataSource, UITableViewDelegate {
 extension FeedCardsViewController: FeedCardsTableViewCellDelegate {
     func didTapImage(_ id: String) {
         print("Did tap on image with ID: \(id)")
+        
+        let alert = UIAlertController(title: LocalizableStrings.alertImageTitle.localized,
+                                      message: String(format: LocalizableStrings.alertImageMessage.localized, id),
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: LocalizableStrings.ok.localized.uppercased(), style: .cancel))
+        self.present(alert, animated: true)
     }
     
     func didTapFollow() {
         print("Did tap Follow Button")
+        let alert = UIAlertController(title: LocalizableStrings.alertFollowTitle.localized,
+                                      message: LocalizableStrings.alertFollowMessage.localized,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: LocalizableStrings.ok.localized.uppercased(), style: .cancel))
+        self.present(alert, animated: true)
     }
     
     func didTapShare() {
         print("Did tap Share Button")
+        let alert = UIAlertController(title: LocalizableStrings.alertShareTitle.localized,
+                                      message: LocalizableStrings.alertShareMessage.localized,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: LocalizableStrings.ok.localized.uppercased(), style: .cancel))
+        self.present(alert, animated: true)
     }
 }

@@ -18,7 +18,7 @@ extension String: Localizable {
         // - LocalizedString is different to self when in specific localizable file ("Localizable.strings")
         //  contains the translation to the key
         if localizedString == self {
-            // - Fetch the translation for the default locacalizable file ("GeneralLocalizable.strings")
+            // - Fetch the translation for the default locacalizable file ("Localizable.strings")
             localizedString = Bundle.main.localizedString(forKey: self, value: nil, table: "Localizable")
         }
         

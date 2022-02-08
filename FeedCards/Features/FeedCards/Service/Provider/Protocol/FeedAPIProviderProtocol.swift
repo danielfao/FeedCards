@@ -8,5 +8,5 @@
 import UIKit
 
 protocol FeedAPIProviderProtocol {
-    func fetchData(completion: @escaping FeedResultCompletion)
+    func fetchData(_ urlString: String?, completion: @escaping FeedResultCompletion)
 }

@@ -6,6 +6,12 @@
   
 */
 
+// MARK: - Defaults
+
+"followButtonTitle" = "Follow";
+"shareButtonTitle" = "Share";
+"ok" = "ok";
+
 // MARK: - Tag type
 
 "recommendedSeller" = "Recommended Seller";
@@ -16,11 +22,6 @@
 
 "feedTitle" = "Feed";
 
-// MARK: - Defaults
-
-"followButtonTitle" = "Follow";
-"shareButtonTitle" = "Share";
-
 // MARK: - Network errors
 
 "invalidUrlError" = "Invalid URL";
@@ -30,3 +31,12 @@
 
 "postedToday" = "Posted today at: %@";
 "postedAnotherDay" = "Posted on: %@";
+
+// MARK: - Alert messages
+
+"alertImageMessage" = "Did you tap on image number %@";
+"alertImageTitle" = "Image";
+"alertShareMessage" = "Did you tap on Share button";
+"alertShareTitle" = "Share";
+"alertFollowMessage" = "Did you tap on Follow button";
+"alertFollowTitle" = "Follow";

@@ -10,10 +10,8 @@ import UIKit
 struct FeedAPIProvider: FeedAPIProviderProtocol {
     // MARK: - Functions
     
-    func fetchData(completion: @escaping FeedResultCompletion) {
-        let URLString = "https://inserttheapihere.com"
-        
-        guard let url = URL(string: URLString) else {
+    func fetchData(_ urlString: String?, completion: @escaping FeedResultCompletion) {
+        guard let urlString = urlString, let url = URL(string: urlString) else {
             completion(.failure(.invalidUrl))
             return
         }

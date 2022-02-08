@@ -48,7 +48,7 @@ class FeedManagerTests: XCTestCase {
     
     func testManagerSuccessedFetchOneData() {
         let expectation = self.expectation(description: "fetching feed data")
-        manager?.fetchData(completion: {  [weak self] result in
+        manager?.fetchData(completion: { [weak self] result in
             switch result {
             case .success(let feedResult):
                 self?.feeds = feedResult.feed

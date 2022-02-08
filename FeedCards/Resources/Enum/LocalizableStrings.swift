@@ -13,6 +13,7 @@ enum LocalizableStrings: String, Localizable {
     case recommendedSeller
     case newArrivals
     case other
+    case ok
     
     // MARK: - Feed
     
@@ -32,6 +33,15 @@ enum LocalizableStrings: String, Localizable {
     
     case postedToday
     case postedAnotherDay
+    
+    // MARK: - Alert
+
+    case alertImageMessage
+    case alertImageTitle
+    case alertShareMessage
+    case alertShareTitle
+    case alertFollowMessage
+    case alertFollowTitle
     
     // MARK: - Computed Propertie
     

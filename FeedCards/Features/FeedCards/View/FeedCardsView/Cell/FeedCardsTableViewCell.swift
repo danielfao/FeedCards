@@ -208,7 +208,7 @@ extension FeedCardsTableViewCell {
     
     private func setTagView() {
         tagView.backgroundColor = model?.tagTypeColor
-        tagLabel.text = model?.tagTypeText
+        tagLabel.text = model?.tagTypeText.uppercased()
     }
     
     private func setCardTitle() {

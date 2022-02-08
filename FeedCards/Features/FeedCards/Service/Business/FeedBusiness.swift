@@ -31,7 +31,7 @@ final class FeedBusiness {
 
 extension FeedBusiness: FeedBusinessProtocol {
     func fetchData(completion: @escaping FeedResultCompletion) {
-        provider?.fetchData(completion: { result in
+        provider?.fetchData(nil, completion: { result in
             switch result {
             case let .success(feedResult):
                 completion(.success(feedResult))
