@@ -78,30 +78,30 @@ extension FeedCardsViewController: UITableViewDataSource, UITableViewDelegate {
 // MARK: - FeedTableViewCellDelegate
 
 extension FeedCardsViewController: FeedCardsTableViewCellDelegate {
+    // MARK: - Public functions
+    
     func didTapImage(_ id: String) {
         print("Did tap on image with ID: \(id)")
         
-        let alert = UIAlertController(title: LocalizableStrings.alertImageTitle.localized,
-                                      message: String(format: LocalizableStrings.alertImageMessage.localized, id),
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: LocalizableStrings.ok.localized.uppercased(), style: .cancel))
-        self.present(alert, animated: true)
+        showAlertView(with: LocalizableStrings.alertImageTitle.localized, and: String(format: LocalizableStrings.alertImageMessage.localized, id))
     }
     
     func didTapFollow() {
         print("Did tap Follow Button")
-        let alert = UIAlertController(title: LocalizableStrings.alertFollowTitle.localized,
-                                      message: LocalizableStrings.alertFollowMessage.localized,
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: LocalizableStrings.ok.localized.uppercased(), style: .cancel))
-        self.present(alert, animated: true)
+        
+        showAlertView(with: LocalizableStrings.alertFollowTitle.localized, and: LocalizableStrings.alertFollowMessage.localized)
     }
     
     func didTapShare() {
         print("Did tap Share Button")
-        let alert = UIAlertController(title: LocalizableStrings.alertShareTitle.localized,
-                                      message: LocalizableStrings.alertShareMessage.localized,
-                                      preferredStyle: .alert)
+        
+        showAlertView(with: LocalizableStrings.alertShareTitle.localized, and: LocalizableStrings.alertShareMessage.localized)
+    }
+    
+    // MARK: - Private functions
+    
+    private func showAlertView(with title: String, and message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: LocalizableStrings.ok.localized.uppercased(), style: .cancel))
         self.present(alert, animated: true)
     }

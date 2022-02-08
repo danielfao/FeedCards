@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let viewController = FeedCardsViewController(feedViewModel: FeedCardsViewModel())
         let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.navigationBar.backgroundColor = .white
        
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
