@@ -5,8 +5,6 @@
 //  Created by Daniel Oliveira on 09/12/21.
 //
 
-import UIKit
-
 final class FeedBusiness {
     
     // MARK: - Private properties

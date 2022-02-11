@@ -5,7 +5,7 @@
 //  Created by Daniel Oliveira on 09/12/21.
 //
 
-import UIKit
+import Foundation
 
 class FeedAPIProviderMock: FeedAPIProviderProtocol {
     // MARK: - Private properties

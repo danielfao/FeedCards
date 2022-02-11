@@ -29,12 +29,14 @@ class FeedManagerTests: XCTestCase {
         "https://www.beach.com/wp-content/uploads/2019/04/rsz_shutterstock_377796004-680x380.jpg"
     ]
     
-    // MARK: - Setup
+    // MARK: - Properties
     
     var provider: FeedAPIProviderMock?
     var business: FeedBusiness?
     var manager: FeedManager?
     var feeds: [Feed] = []
+    
+    // MARK: - Setup
     
     override func setUp() {
         super.setUp()
@@ -54,12 +56,13 @@ class FeedManagerTests: XCTestCase {
                 self?.feeds = feedResult.feed
                 expectation.fulfill()
             case .failure(_ ):
-                break
+                XCTFail("Failed to fetching")
             }
         })
         
         waitForExpectations(timeout: 5, handler: nil)
         XCTAssertEqual(feeds.count, 1, "Feed count should be amount of 1")
+        
     }
     
     func testManagerDataFetched() {
@@ -70,7 +73,7 @@ class FeedManagerTests: XCTestCase {
                 self?.feeds = feedResult.feed
                 expectation.fulfill()
             case .failure(_ ):
-                break
+                XCTFail("Failed to fetching")
             }
         })
         

@@ -5,8 +5,6 @@
 //  Created by Daniel Oliveira on 03/02/22.
 //
 
-import Foundation
-
 enum OperationState: String {
     case ready = "isReady"
     case executing = "isExecuting"

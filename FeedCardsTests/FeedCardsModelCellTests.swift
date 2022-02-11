@@ -28,6 +28,8 @@ class FeedCardsModelCellTests: XCTestCase {
     let datePhraseString = "Posted on:"
     let titleString = "Seller with a very long name that needs two line to fit"
     
+    // MARK: - Properties
+    
     private var model: FeedCardsModelViewCell?
     
     // MARK: - Setup
@@ -37,6 +39,8 @@ class FeedCardsModelCellTests: XCTestCase {
         
         model = FeedCardsModelViewCell(with: feeds)
     }
+    
+    // MARK: - Tests
     
     func testGetImagesURLFunction() {
         guard let model = model else {

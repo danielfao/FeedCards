@@ -5,13 +5,9 @@
 //  Created by Daniel Oliveira on 09/12/21.
 //
 
-import UIKit
+import Foundation
 
 final class FeedManager: OperationQueue {
-    
-    // MARK: - Constants
-
-    private let cache = NSCache<NSString, UIImage>()
     
     // MARK: - Private properties
     
